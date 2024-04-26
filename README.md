@@ -135,32 +135,17 @@ While the client is well-versed in the determinants of property worth in her own
 ## ML Business Case
 * In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
 //
-Predict Churn
-Classification Model
-We want an ML model to predict if a prospect will churn based on historical data from the customer base, which doesn't include tenure and total charges since these values are zero for a prospect. The target variable is categorical and contains 2-classes. We consider a classification model. It is a supervised model, a 2-class, single-label, classification model output: 0 (no churn), 1 (yes churn)
-Our ideal outcome is to provide our sales team with reliable insight into onboarding customers with a higher sense of loyalty.
-The model success metrics are
-at least 80% Recall for Churn, on train and test set
 
-The ML model is considered a failure if:
-after 3 months of usage, more than 30% of newly onboarded customers churn (it is an indication that the offers are not working or the model is not detecting potential churners)
-Precision for no Churn is lower than 80% on train and test set. (We don't want to offer a free discount to many non-churnable prospects)
+### Predict Sales price
+#### Regression Model
+   * We want an ML model to predict ........., in months, for a prospect expected to churn. A target variable is a discrete number. We consider a regression model, which is supervised and uni-dimensional.
+   * Our ideal outcome is to provide our sales team with reliable insight into onboarding customers with a higher sense of loyalty.
+   * The model success metrics are
+   * At least 0.7 for R2 score, on train and test set
+   * The ML model is considered a failure if:
+      * after 12 months of usage, the model's predictions are 50% off more than 30% of the time. Say, a prediction is >50% off if predicted 10 months and the actual value was 2 months.
+   * The output is defined as a continuous value for tenure in months. It is assumed that this model will predict tenure if the Predict Churn Classifier predicts 1 (yes for churn). If the prospect is online, the prospect will have already provided the input data via a form. If the prospect talks to a salesperson, the salesperson will interview to gather the input data and feed it into the App. The prediction is made on the fly (not in batches).
 
-The model output is defined as a flag, indicating if a prospect will churn or not and the associated probability of churning. If the prospect is online, the prospect will have already provided the input data via a form. If the prospect talks to a salesperson, the salesperson will interview to gather the input data and feed it into the App. The prediction is made on the fly (not in batches).
-
-Heuristics: Currently, there is no approach to predict churn on prospects
-The training data to fit the model comes from the Telco Customer. This dataset contains about 7 thousand customer records.
-Train data - target: Churn; features: all other variables, but tenure, total charges and customerID
-
-Predict Tenure
-Regression Model
-We want an ML model to predict tenure levels, in months, for a prospect expected to churn. A target variable is a discrete number. We consider a regression model, which is supervised and uni-dimensional.
-Our ideal outcome is to provide our sales team with reliable insight into onboarding customers with a higher sense of loyalty.
-The model success metrics are
-At least 0.7 for R2 score, on train and test set
-The ML model is considered a failure if:
-after 12 months of usage, the model's predictions are 50% off more than 30% of the time. Say, a prediction is >50% off if predicted 10 months and the actual value was 2 months.
-The output is defined as a continuous value for tenure in months. It is assumed that this model will predict tenure if the Predict Churn Classifier predicts 1 (yes for churn). If the prospect is online, the prospect will have already provided the input data via a form. If the prospect talks to a salesperson, the salesperson will interview to gather the input data and feed it into the App. The prediction is made on the fly (not in batches).
 Heuristics: Currently, there is no approach to predict the tenure levels for a prospect.
 The training data to fit the model comes from the Telco Customer. This dataset contains about 7 thousand customer records.
 Train data - filter data where Churn == 1, then drop the Churn variable. Target: tenure; features: all other variables, but total charges and customerID
@@ -192,6 +177,23 @@ The training data to fit the model comes from the Telco Customer. This dataset c
 Train data - features: all variables, but customerID, TotalCharges, Churn, and tenure
 //
 
+
+Predict Churn
+Classification Model
+We want an ML model to predict if a prospect will churn based on historical data from the customer base, which doesn't include tenure and total charges since these values are zero for a prospect. The target variable is categorical and contains 2-classes. We consider a classification model. It is a supervised model, a 2-class, single-label, classification model output: 0 (no churn), 1 (yes churn)
+Our ideal outcome is to provide our sales team with reliable insight into onboarding customers with a higher sense of loyalty.
+The model success metrics are
+at least 80% Recall for Churn, on train and test set
+
+The ML model is considered a failure if:
+after 3 months of usage, more than 30% of newly onboarded customers churn (it is an indication that the offers are not working or the model is not detecting potential churners)
+Precision for no Churn is lower than 80% on train and test set. (We don't want to offer a free discount to many non-churnable prospects)
+
+The model output is defined as a flag, indicating if a prospect will churn or not and the associated probability of churning. If the prospect is online, the prospect will have already provided the input data via a form. If the prospect talks to a salesperson, the salesperson will interview to gather the input data and feed it into the App. The prediction is made on the fly (not in batches).
+
+Heuristics: Currently, there is no approach to predict churn on prospects
+The training data to fit the model comes from the Telco Customer. This dataset contains about 7 thousand customer records.
+Train data - target: Churn; features: all other variables, but tenure, total charges and customerID
 
 
 ## Dashboard Design
