@@ -1,4 +1,4 @@
-# ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+ # ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 ## Template Instructions
 
@@ -99,6 +99,12 @@ While the client is well-versed in the determinants of property worth in her own
 * 2 - The client is interested in predicting the house sale price from her four inherited houses and any other house in Ames, Iowa.
 
 
+### User stories
+
+1. **User Story 1**: As a user, I want to view house attributes is correlated to the sale price, so that I can identify the key features for upcoming sales.
+2. **User Story 2**: As a user, I want to be able to determine the likely sale price of a home based on certain features, so that I can gain insight into the likely values of a given home in the area.
+3. **User Story 3**: As an end user, I want to be able to access the required information easily online, so that I can find relevant information any time in a user friendly fashion.2
+
 ## Hypothesis, validation and result
 * List here your project hypothesis(es) and how you envision validating it (them).
 
@@ -138,62 +144,13 @@ While the client is well-versed in the determinants of property worth in her own
 
 ### Predict Sales price
 #### Regression Model
-   * We want an ML model to predict ........., in months, for a prospect expected to churn. A target variable is a discrete number. We consider a regression model, which is supervised and uni-dimensional.
+   * We want an ML model to predict sales price, in months, for a prospect expected to churn. A target variable is a discrete number. We consider a regression model, which is supervised and uni-dimensional.
    * Our ideal outcome is to provide our sales team with reliable insight into onboarding customers with a higher sense of loyalty.
    * The model success metrics are
    * At least 0.7 for R2 score, on train and test set
    * The ML model is considered a failure if:
       * after 12 months of usage, the model's predictions are 50% off more than 30% of the time. Say, a prediction is >50% off if predicted 10 months and the actual value was 2 months.
    * The output is defined as a continuous value for tenure in months. It is assumed that this model will predict tenure if the Predict Churn Classifier predicts 1 (yes for churn). If the prospect is online, the prospect will have already provided the input data via a form. If the prospect talks to a salesperson, the salesperson will interview to gather the input data and feed it into the App. The prediction is made on the fly (not in batches).
-
-Heuristics: Currently, there is no approach to predict the tenure levels for a prospect.
-The training data to fit the model comes from the Telco Customer. This dataset contains about 7 thousand customer records.
-Train data - filter data where Churn == 1, then drop the Churn variable. Target: tenure; features: all other variables, but total charges and customerID
-Classification Model
-Before the analysis, we visualized a Regressor pipeline to predict Churn; however, the performance didn’t meet the requirement (at least 0.7 for R2 score, on train and test set)
-We used a technique to convert the ML task from Regression to Classification. We discretized the target into 3 ranges: <4 months, 4-20 months and +20 months.
-The classification pipeline can detect a prospect that would likely churn in less than four months and a prospect that would likely churn in more than 20 months.
-A target variable is categorical and contains 3 classes. We consider a classification model, which is supervised and uni-dimensional.
-Our ideal outcome is to provide our sales team with reliable insight into onboarding customers with a higher sense of loyalty.
-The model success metrics are
-At least 0.8 Recall for <4 months, on train and test set
-The ML model is considered a failure if:
-after 3 months of usage, more than 30% of customers that were expected to churn in <4 months do not churn
-The output is defined as a class, which maps to a range of tenure in months. It is assumed that this model will predict tenure if the Predict Churn Classifier predicts 1 (yes for churn). If the prospect is online, the prospect will have already provided the input data via a form. If the prospect talks to a salesperson, the salesperson will interview to gather the input data and feed it into the App. The prediction is made on the fly (not in batches).
-Heuristics: Currently, there is no approach to predict the tenure levels for a prospect.
-The training data to fit the model comes from the Telco Customer. This dataset contains about 7 thousand customer records.
-Train data - filter data where Churn == 1, then drop the Churn variable. Target: tenure; features: all other variables, but total charges and customerID
-Cluster Analysis
-Clustering Model
-We want an ML model to cluster similar customer behaviour. It is an unsupervised model.
-Our ideal outcome is to provide our sales team with reliable insight into onboarding customers with a higher sense of loyalty.
-The model success metrics are
-at least 0.45 for the average silhouette score
-The ML model is considered a failure if the model suggests from more than 15 clusters (might become too difficult to interpret in practical terms)
-
-The output is defined as an additional column appended to the dataset. This column represents the cluster's suggestions. It is a categorical and nominal variable, represented by numbers, starting at 0.
-Heuristics: Currently, there is no approach to grouping similar customers
-The training data to fit the model comes from the Telco Customer. This dataset contains about 7 thousand customer records.
-Train data - features: all variables, but customerID, TotalCharges, Churn, and tenure
-//
-
-
-Predict Churn
-Classification Model
-We want an ML model to predict if a prospect will churn based on historical data from the customer base, which doesn't include tenure and total charges since these values are zero for a prospect. The target variable is categorical and contains 2-classes. We consider a classification model. It is a supervised model, a 2-class, single-label, classification model output: 0 (no churn), 1 (yes churn)
-Our ideal outcome is to provide our sales team with reliable insight into onboarding customers with a higher sense of loyalty.
-The model success metrics are
-at least 80% Recall for Churn, on train and test set
-
-The ML model is considered a failure if:
-after 3 months of usage, more than 30% of newly onboarded customers churn (it is an indication that the offers are not working or the model is not detecting potential churners)
-Precision for no Churn is lower than 80% on train and test set. (We don't want to offer a free discount to many non-churnable prospects)
-
-The model output is defined as a flag, indicating if a prospect will churn or not and the associated probability of churning. If the prospect is online, the prospect will have already provided the input data via a form. If the prospect talks to a salesperson, the salesperson will interview to gather the input data and feed it into the App. The prediction is made on the fly (not in batches).
-
-Heuristics: Currently, there is no approach to predict churn on prospects
-The training data to fit the model comes from the Telco Customer. This dataset contains about 7 thousand customer records.
-Train data - target: Churn; features: all other variables, but tenure, total charges and customerID
 
 
 ## Dashboard Design
