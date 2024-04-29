@@ -95,8 +95,11 @@ While the client is well-versed in the determinants of property worth in her own
 
 ### Requirements
 
-* 1 - The client is interested in discovering how the house attributes correlate with the sale price. Therefore, the client expects data visualisations of the correlated variables against the sale price to show that.
-* 2 - The client is interested in predicting the house sale price from her four inherited houses and any other house in Ames, Iowa.
+* 1. - The client is interested in discovering how the house attributes correlate with the sale price. 
+
+* 2. - The client expects data visualisations of the correlated variables against the sale price to show that.
+
+* 3. - The client is interested in predicting the house sale price from her four inherited houses and any other house in Ames, Iowa.
 
 
 ### User stories
@@ -129,7 +132,7 @@ While the client is well-versed in the determinants of property worth in her own
     - We will plot the significant variables against price development.
 
 
-  Business requirement 2: Classification, Regression, Cluster, Data analysis
+  Business requirement 2: Regression, Cluster, Data analysis
 
    - We want to predict the house prices.
    - We want to create a regression model. 
@@ -152,6 +155,10 @@ While the client is well-versed in the determinants of property worth in her own
       * after 12 months of usage, the model's predictions are 50% off more than 30% of the time. Say, a prediction is >50% off if predicted 10 months and the actual value was 2 months.
    * The output is defined as a continuous value for tenure in months. It is assumed that this model will predict tenure if the Predict Churn Classifier predicts 1 (yes for churn). If the prospect is online, the prospect will have already provided the input data via a form. If the prospect talks to a salesperson, the salesperson will interview to gather the input data and feed it into the App. The prediction is made on the fly (not in batches).
 
+The predictive model should aim to acchieve an R2 value of 0.8 or higher
+
+No wireframes, no kanban board. Get data 
+
 
 ## Dashboard Design
 * List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items that your dashboard library supports.
@@ -159,7 +166,7 @@ While the client is well-versed in the determinants of property worth in her own
 
 
 //
-Page 1: Quick project summary
+Page 1: Project summary
 Quick project summary
 Project Terms & Jargon
 Describe Project Dataset
