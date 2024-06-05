@@ -95,7 +95,7 @@ While the client is well-versed in the determinants of property worth in her own
 
 ### Requirements
 
-* 1. - The client is interested in discovering how the house attributes correlate with the sale price. 
+* 1. - The client is interested in identifying which house attributes have the strongest correlation with the sale price. 
 
 * 2. - The client expects data visualisations of the correlated variables against the sale price to show that.
 
@@ -104,48 +104,57 @@ While the client is well-versed in the determinants of property worth in her own
 
 ### User stories
 
-1. **User Story 1**: As a user, I want to view house attributes is correlated to the sale price, so that I can identify the key features for upcoming sales.
+1. **User Story 1**: As a user, I want to view the attributes correlated to the sale price, so that I can identify the key features for upcoming sales.
 2. **User Story 2**: As a user, I want to be able to determine the likely sale price of a home based on certain features, so that I can gain insight into the likely values of a given home in the area.
-3. **User Story 3**: As an end user, I want to be able to access the required information easily online, so that I can find relevant information any time in a user friendly fashion.2
+3. **User Story 3**: As a user, I want to be able to access the required information regarding price evolution easily online, so that I can identify risks and potential for future sales.
 
 ## Hypothesis, validation and result
-* List here your project hypothesis(es) and how you envision validating it (them).
 
-1. Sales price house attribute correlation:
-   We assume that the following three features has the strongest correlation: location, size and the condition of the property:
-    - Validation: Evaluate each attribute in a correlation study.
+1. Hpothesis: Sales price house attribute correlation:
+   We assume that the following four features has the strongest correlation: location, size, condition and age of the property:
+    - Validation: Evaluate the available house attributes in a correlation study.
     - Result:  
 
-
-2. Sales price evolution:
-   We assume that sales price is increasing with two percent on average per year:
-   - Validation: Evaluate sales price development in a correlation (predict power score?) study.
+2. Hypothesis: Determine sales price:
+   We assume that the following variables will be sufficient to confidently predict the price: location (area), house size (square feet), overall quality and the build year.
+   - Validation: Use a machine learning model and optimization procedures to ensure the application of appropriate methods.
    - Result: 
+   
+3.  Hypothesis: Sales price evolution:
+   We assume that sales price is increasing with an average of two percent on average per year:
+   - Validation: Evaluate sales price development in a correlation predict power score/correlation study.
+   - Result:
 
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
 * List your business requirements and a rationale to map them to the Data Visualisations and ML tasks.
 
-  Business requirement 1: Correlation study and Data visualisation
+  Business requirement 1: Correlation study.
     - We will inspect the provided data received from the client.
-    - We will conduct a correlation study (TBC) to understand which variables are most relevant for house sale price impact.
+    - We will conduct a correlation studies to understand which variables are most relevant for house sale price impact.
     - We will plot the significant variables against price development.
 
+  Business requirement 2: Data visualisation
+   - We will apply data handling to enable visualisation of various data types. 
+   - We want to handling missing data to be able to display the non-missing values for these variables.
+   - We will identify the most suitable trendlines or plots depending onthe distribution of values.
 
-  Business requirement 2: Regression, Cluster, Data analysis
-
-   - We want to predict the house prices.
-   - We want to create a regression model. 
-   - TBC
-   - TBC    
-
+  Business requirement 3:
+  - We will use crossvalidation technique to document the most reliable trend for the sale prices.
 
 
 ## ML Business Case
-* In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
-//
 
 ### Predict Sales price
+We want an ML model to predict sale price, in dollars, for a home in Ames, Iowa. The target variable is a continuous number. We firstly consider a regression model, which is supervised and uni-dimensional.
+Our ideal outcome is to provide a client with the ability to reliably predict the sale price of any home in Ames, Iowa, and more specifically the inherited properties the client is particularly concerned with.
+The model success metrics are:
+At least 0.8 for R2 score, on train and test set.
+The model is considered a failure if: after 12 months of usage, the model predictions are 50% off more than 30% of the time, and/or the R2 score is less than 0.8.
+The output is defined as a continuous value of sale price in dollars. Private parties/home owners/clients can access the app online and input data for their homes. The app can also be useful for real estate agents who want to give a quick estimate of saleprice to a prospective client, they can input the data on the fly while in live communication with a prospective client.
+The training data come from a public data set, which contains approx. 1500 property sales records. It contains one target features: sale price, and all other variables (23 of them) are considered features.
+
+
 #### Regression Model
    * We want an ML model to predict sales price, in months, for a prospect expected to churn. A target variable is a discrete number. We consider a regression model, which is supervised and uni-dimensional.
    * Our ideal outcome is to provide our sales team with reliable insight into onboarding customers with a higher sense of loyalty.
