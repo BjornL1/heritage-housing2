@@ -15,5 +15,14 @@ def trendlines_page():
     # Display a checkbox to show the trendline plots
     if st.checkbox("Show Trendline Plots"):
         st.write("Generating trendline plots...")
-        plot_with_custom_trendlines(df, variables, correlation_methods)
-        st.write("Trendline plots generated successfully!")
+        
+        # Generate the trendline plots
+        try:
+            plot_with_custom_trendlines(df, variables, correlation_methods)
+            st.write("Trendline plots generated successfully!")
+        except Exception as e:
+            st.error(f"An error occurred while generating the trendline plots: {e}")
+
+# Call the function to run the Streamlit app
+if __name__ == "__main__":
+    trendlines_page()
