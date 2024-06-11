@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from datetime import date
 from src.data_management import (
-    load_house_prices_data,
+    load_housing_data,
     load_pkl_file,
     load_inherited_house_data)
 from src.machine_learning.evaluate_regression import regression_performance
