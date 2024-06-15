@@ -1,6 +1,6 @@
 import streamlit as st
 
-def page_test1_content():
+def page_summary_content():
 
     st.write("### Quick Project Summary")
 
