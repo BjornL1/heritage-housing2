@@ -116,7 +116,7 @@ While the client is well-versed in the determinants of property worth in her own
     - Result: From the calculations we can see that some of our assesemen of features were correct, whereas   
 
 2. Hypothesis: Determine sales price:
-   We assume that the following variables will be sufficient to confidently predict the price: lot area, house size (square feet), overall quality and the build year.
+   We assume that the following variables will be sufficient to confidently predict the price: lot area, house size (total square feet), overall quality and the build year.
    - Validation: Use a machine learning model and optimization procedures to ensure the application of appropriate methods.
    - Result: 
    
