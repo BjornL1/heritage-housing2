@@ -110,13 +110,13 @@ While the client is well-versed in the determinants of property worth in her own
 
 ## Hypothesis, validation and result
 
-1. Hpothesis: Sales price house attribute correlation:
-   We assume that the following four features has the strongest correlation: location, size, condition and age of the property:
+1. Hypothesis: Sales price house attribute correlation:
+   We assume that the following four features has the strongest correlation: lot area, size, condition and age of the property:
     - Validation: Evaluate the available house attributes in a correlation study.
-    - Result:  
+    - Result: From the calculations we can see that some of our assesemen of features were correct, whereas   
 
 2. Hypothesis: Determine sales price:
-   We assume that the following variables will be sufficient to confidently predict the price: location (area), house size (square feet), overall quality and the build year.
+   We assume that the following variables will be sufficient to confidently predict the price: lot area, house size (square feet), overall quality and the build year.
    - Validation: Use a machine learning model and optimization procedures to ensure the application of appropriate methods.
    - Result: 
    
@@ -159,7 +159,7 @@ The training data come from a public data set, which contains approx. 1500 prope
    * We want an ML model to predict sales price, in months, for a prospect expected to churn. A target variable is a discrete number. We consider a regression model, which is supervised and uni-dimensional.
    * Our ideal outcome is to provide our sales team with reliable insight into onboarding customers with a higher sense of loyalty.
    * The model success metrics are
-   * At least 0.7 for R2 score, on train and test set
+   * At least 0.8 for R2 score, on train and test set
    * The ML model is considered a failure if:
       * after 12 months of usage, the model's predictions are 50% off more than 30% of the time. Say, a prediction is >50% off if predicted 10 months and the actual value was 2 months.
    * The output is defined as a continuous value for tenure in months. It is assumed that this model will predict tenure if the Predict Churn Classifier predicts 1 (yes for churn). If the prospect is online, the prospect will have already provided the input data via a form. If the prospect talks to a salesperson, the salesperson will interview to gather the input data and feed it into the App. The prediction is made on the fly (not in batches).

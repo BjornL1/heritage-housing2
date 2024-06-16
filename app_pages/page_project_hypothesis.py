@@ -1,6 +1,6 @@
 import streamlit as st
 
-def page_test2_content():
+def page_project_hypothesis_content():
 
     st.write("### Page2")
 
