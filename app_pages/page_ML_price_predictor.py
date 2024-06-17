@@ -1,4 +1,10 @@
 import streamlit as st
+import numpy as np
+import pandas as pd
+from sklearn.pipeline import Pipeline
+
+# Assume these variables are already defined or loaded from your data and model pipeline
+# X_train, y_train, X_test, y_test, sale_price_pipe
 
 def page_ML_price_predictor_content():
     # Define the paths to the images
@@ -12,5 +18,4 @@ def page_ML_price_predictor_content():
 
     st.write("### Model Performance Evaluation")
     st.image(model_performance_evaluation, caption="Model Performance Evaluation", use_column_width=True)
-
 
