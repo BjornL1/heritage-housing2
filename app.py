@@ -15,7 +15,7 @@ app = MultiPage(app_name="HeritageHousing")  # Create an instance of the app
 # Add your app pages here using .add_page()
 app.add_page("Project Summary", page_summary_content)
 app.add_page("Project Hypothesis and Validation", page_project_hypothesis_content)
-app.add_page("TrendlinePlottingPage", trendlines_page)
+app.add_page("Sale Price Correlation", trendlines_page)
 app.add_page("Sale Price Predictor", page_sale_price_predictor_body)  # Add the sale price predictor page
 app.add_page("ML Price Predictor", page_ML_price_predictor_content)   # Add the ML predictor page
 
