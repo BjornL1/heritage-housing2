@@ -27,5 +27,4 @@ def page_summary_content():
     
     st.write(
     "* For additional information, please visit and **read** the\n"
-    "[Project README file](https://github.com/Code-Institute-Solutions/churnometer)."
-)
+    "[Project README file](https://github.com/Code-Institute-Solutions/churnometer).")
