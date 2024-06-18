@@ -25,7 +25,7 @@ You can safely delete the Template Instructions section of this README.md file, 
 7. Open a new terminal and `pip3 install -r requirements.txt`
 
 11. Open the jupyter_notebooks directory and click on the notebook you want to open.
-
+  
 12. Click the kernel button and choose Python Environments.
 
 Note that the kernel says Python 3.8.18 as it inherits from the workspace so it will be Python-3.8.18 as installed by our template. To confirm this you can use `! python --version` in a notebook code cell.
@@ -174,15 +174,34 @@ No wireframes, no kanban board. Get data
 * Eventually, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but eventually you needed to use another plot type)
 
 
-//
-Page 1: Project summary
-Quick project summary
-Project Terms & Jargon
-Describe Project Dataset
-State Business Requirements
+### Page 1: Quick project summary
+- Project Terminology
+   - Description of factors that may impact the sale (features and attributes).
+
+- Project Background
+   - A short background about the motivation and request to initiate the project.
+
+- Project Business Requirements
+   - This section outlines the business requirements derived from the project background.
 
 
-Page 2: Customer Base Churn Study
+### Page 3: Sale Price Correlation
+
+- This page displays the result connected to **Business Requirement 1**.
+   -  Information of the business requirement criteria
+   -  Explanation of the correlation study (Spearman and Pearson) and correlation score threshold.
+   -   Information for histogram and scatterplots for the most relevant 
+   house attributes.
+   - Information and threshold values selected for power predictive score heatmap and bar plot visualization.
+
+- Checkboxes:
+   -  CB: "Inspect Sale Price Dataset": Present 10 rows of the dataset.
+   -  CB: "Pearson Correlation": Present Pearson heatmap and barplot.
+   -  CB: "Spearman Correlation": Present Pearson heatmap and barplot.
+   -  CB: "Correlation Plots of Variables vs Sale Price": Present correlation, single variable to sale price.
+
+
+### Page 4: Project Hypothesis and Validation
 Before the analysis, we knew we wanted this page to answer business requirement 1, but we couldn't know in advance which plots would need to be displayed.
 After data analysis, we agreed with stakeholders that the page will:
 State business requirement 1
@@ -190,12 +209,6 @@ Checkbox: data inspection on customer base (display the number of rows and colum
 Display the most correlated variables to churn and the conclusions
 Checkbox: Individual plots showing the churn levels for each correlated variable
 Checkbox: Parallel plot using Churn and correlated variables
-
-
-Page 3: Prospect Churnometer
-State business requirement 2
-Set of widgets inputs, which relates to the prospect profile. Each set of inputs is related to a given ML task to predict prospect Churn, Tenure and Cluster.
-"Run predictive analysis" button that serves the prospect data to our ML pipelines, and predicts if the prospect will churn or not, if so, when. It also shows to which cluster the prospect belongs and the cluster's profile. For the churn and tenure predictions, the page will inform the associated probability for churning and tenure level.
 
 
 Page 4: Project Hypothesis and Validation
@@ -211,24 +224,6 @@ Considerations and conclusions after the pipeline is trained
 Present ML pipeline steps
 Feature importance
 Pipeline performance
-
-
-Page 6: Predict Tenure
-Considerations and conclusions after the pipeline is trained
-Present ML pipeline steps
-Feature importance
-Pipeline performance
-
-
-Page 7: Cluster Analysis
-Considerations and conclusions after the pipeline is trained
-Present ML pipeline steps
-Silhouette plot
-Clusters distribution across Churn levels
-Relative Percentage (%) of Churn in each cluster
-The most important features to define a cluster
-Cluster Profile
-//
 
 ## Unfixed Bugs
 
