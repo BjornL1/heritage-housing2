@@ -10,7 +10,7 @@ from app_pages.page_project_hypothesis import page_project_hypothesis_content
 from app_pages.plotting_module import plot_with_custom_trendlines
 from app_pages.page_ML_price_predictor import page_ML_price_predictor_content
 
-app = MultiPage(app_name="HeritageHousing") 
+app = MultiPage(app_name="Heritage Housing") 
 
 app.add_page("Project Summary", page_summary_content)
 app.add_page("Sale Price Correlation", trendlines_page)

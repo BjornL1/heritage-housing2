@@ -168,26 +168,24 @@ The predictive model should aim to acchieve an R2 value of 0.8 or higher
 
 No wireframes, no kanban board. Get data 
 
-
 ## Dashboard Design
-* List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items that your dashboard library supports.
-* Eventually, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but eventually you needed to use another plot type)
-
 
 ### Page 1: Quick project summary
 - Project Terminology
    - Description of factors that may impact the sale (features and attributes).
-
 - Project Background
    - A short background about the motivation and request to initiate the project.
-
 - Project Business Requirements
    - This section outlines the business requirements derived from the project background.
 
+<details>
+<summary>Project Summary Page</summary>
+<img src="docs/readme_images/page_summary.png" width="60%">
+</details>
 
-### Page 3: Sale Price Correlation
-
-- This page displays the result connected to **Business Requirement 1**.
+### Page 2: Sale Price Correlation
+- This page displays the result connected to **Business Requirement 1** and 
+**Business Requirement 2**
    -  Information of the business requirement criteria
    -  Explanation of the correlation study (Spearman and Pearson) and correlation score threshold.
    -   Information for histogram and scatterplots for the most relevant 
@@ -200,34 +198,38 @@ No wireframes, no kanban board. Get data
    -  CB: "Spearman Correlation": Present Pearson heatmap and barplot.
    -  CB: "Correlation Plots of Variables vs Sale Price": Present correlation, single variable to sale price.
 
+### Page 3: Sale Price Predictor
+- This page displays the result connected to **Business Requirement 3**
+   -  Information on the business requirement criteria.
+   -  Explanation of which features were selected to use as predictors.
+   -  Information regarding details of the features.
+   -  Presentation field for predicting house price and inherited houses.
+
+- Input fields predict house price
+   - IF: "OverallQual"  : Set a value between 1 to 10.
+   - IF: "TotalBsmtSF"  : Set a value, max 15275.
+   - IF: "2ndFlrSF"     : Set a value, max 5162.
+   - IF: "GarageArea"   : Set a value, max 3545.
+
+- Buttons
+   - BN: "Run Predictive Analysis": Perform calculation and present it
+   - BN: "Run Prediction on Inherited Homes"
 
 ### Page 4: Project Hypothesis and Validation
-Before the analysis, we knew we wanted this page to answer business requirement 1, but we couldn't know in advance which plots would need to be displayed.
-After data analysis, we agreed with stakeholders that the page will:
-State business requirement 1
-Checkbox: data inspection on customer base (display the number of rows and columns in the data, and display the first ten rows of the data)
-Display the most correlated variables to churn and the conclusions
-Checkbox: Individual plots showing the churn levels for each correlated variable
-Checkbox: Parallel plot using Churn and correlated variables
+- Introduction to hypothesis feature selection criteria.
+- Hypothesis 1,2 and 3 presented and their result.
+- Link to the readme file.
 
 
-Page 4: Project Hypothesis and Validation
-Before the analysis, we knew we wanted this page to describe each project hypothesis, the conclusions, and how we validated each. After the data analysis, we can report that:
-1 - We suspect customers are churning with low tenure levels
-Correct. The correlation study at Churned Customer Study supports that.
-2 - A customer survey showed our customers appreciate fibre Optic.
-A churned user typically has Fiber Optic, as demonstrated by a Churned Customer Study. The insight will be taken to the survey team for further discussions and investigations.
+### Page 5: ML Price Predictor
+- This page displays the result connected to 
+- Introduction to hypothesis feature selection criteria.
+- Hypothesis 1,2 and 3 presented and their result.
 
-
-Page 5: Predict Churn
-Considerations and conclusions after the pipeline is trained
-Present ML pipeline steps
-Feature importance
-Pipeline performance
 
 ## Unfixed Bugs
 
-* You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not valid reason to leave bugs unfixed.
+* No known bugs.
 
 ## Deployment
 
@@ -266,6 +268,4 @@ Pipeline performance
 
 ## Acknowledgements (optional)
 
-
-* In case you would like to thank the people that provided support through this project.
-
+* Thanks to my mentor Mo Shami for his support and advice.
