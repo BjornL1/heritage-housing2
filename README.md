@@ -27,13 +27,14 @@ This website is designed to predict house sale prices by training a machine lear
     - [Page 3: Sale Price Predictor](#page-3-sale-price-predictor)
     - [Page 4: Project Hypothesis and Validation](#page-4-project-hypothesis-and-validation)
     - [Page 5: ML Price Predictor](#page-5-ml-price-predictor)
+  - [Testing](#testing)
+     -[CI Python Linter](#business-requirements)
+     -[Manual testing](#manual-testing)
   - [Unfixed Bugs](#unfixed-bugs)
   - [PEP8 Compliance Testing](#pep8-compliance-testing)
   - [Deployment](#deployment)
     - [Heroku](#heroku)
-  - [Technologies](#technologies)
-    - [Development and Deployment](#development-and-deployment)
-    - [Main Data Analysis and Machine Learning](#main-data-analysis-and-machine-learning)
+    - [Main Data Analysis and Machine Learning Libraries](#main-data-analysis-and-machine-learning-libraries)
   - [Credits](#credits)
     - [Sources of code](#sources-of-code)
   - [Acknowledgements](#acknowledgements)
@@ -342,8 +343,6 @@ No wireframes or Kanban board are included at this stage. The focus is on acquir
 - StreamLit: To create the web app for user interaction.
 
 ## Credits
-
-### Content
 
 * In some sections code is inspired by sections form the code institute course, in these cases a comment is added 
   close to the code section.
