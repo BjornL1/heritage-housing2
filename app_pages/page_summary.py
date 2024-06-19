@@ -17,7 +17,18 @@ def page_summary_content():
         f"* The client has inherited four properties and wants to avoid financial losses. \n"
         f"* Additionally, the client seeks to identify key features influencing house sales.\n"
         f"* To achieve this, the client seeks to use a machine learning app to predict prices and reduce risk.")
-
+    
+    st.info(
+        f"**Project Dataset**\n"
+        f"* Since the request from the client is to predict sale prices and also predict\n" 
+        f" to predict the sale price for the inherited properties, the datasets are defined as\n"
+        f" dataset 1 (DS1) which is the main set and dataset 2 (DS2) for the inherited houses\n"
+        f"*DS1: This dataset contains nearly 1500 rows and 24 columns. Among these, 23 columns\n"
+        f" represent various house attributes (such as quality or square footage) that will be\n"
+        f" analyzed. The target variable in this dataset is the sale price.\n"
+        f"* DS2: There are four rows of data in this data which will be calculated by using\n" 
+        f"the input in dataset 1\n")
+       
     st.info(
         f"**Project Business Requirements**\n"
         f"* The requested app was specified according to the following business requirements:\n"
