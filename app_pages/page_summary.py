@@ -18,7 +18,7 @@ def page_summary_content():
         f"* Additionally, the client seeks to identify key features influencing house sales.\n"
         f"* To achieve this, the client seeks to use a machine learning app to predict prices and reduce risk.")
 
-    st.success(
+    st.info(
         f"**Project Business Requirements**\n"
         f"* The requested app was specified according to the following business requirements:\n"
         f"* BR1: Identify the most relevant house attributes correlating with the sale price.\n"
