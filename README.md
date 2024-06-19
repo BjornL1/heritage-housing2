@@ -130,28 +130,44 @@ Business Requirement 3: Predictive Modeling
 
 ## ML Business Case
 
-### Predict Sales price
-We want an ML model to predict sale price, in dollars, for a home in Ames, Iowa. The target variable is a continuous number. We firstly consider a regression model, which is supervised and uni-dimensional.
-Our ideal outcome is to provide a client with the ability to reliably predict the sale price of any home in Ames, Iowa, and more specifically the inherited properties the client is particularly concerned with.
+#### Predict Sales Price
+We aim to develop a machine learning model to predict the sale price, in dollars, for homes in Ames, Iowa. The target variable is continuous. We will initially consider a regression model, which is supervised and unidimensional.
+
+Our ideal outcome is to enable the client to reliably predict the sale price of any home in Ames, Iowa, with particular emphasis on the inherited properties the client is concerned about.
+
+**Success Metrics**:
+An R² score of at least 0.8 on both the training and test sets.
+The model will be considered a failure if, after 12 months of usage, the model's predictions are off by 50% or more, 30% of the time, and/or if the R² score is less than 0.8.
+
+**Output**:
+A continuous value representing the sale price in dollars.
+
+**Target Users**:
+Private parties/homeowners who want to estimate the value of their homes.
+Real estate agents who need to provide quick estimates to prospective clients during live communications.
+
+**Data Source**:
+The training data comes from a public dataset containing approximately 1500 property sales records. It includes one target feature: sale price, and 23 other variables considered as features.
+
+#### Regression Model Details
+We want an ML model to predict the sales price for homes in Ames, Iowa. The target variable is continuous, and we will use a regression model, which is supervised and unidimensional.
+Our goal is to provide reliable predictions of home sale prices, with a focus on the inherited properties of interest to the client.
+
 The model success metrics are:
-At least 0.8 for R2 score, on train and test set.
-The model is considered a failure if: after 12 months of usage, the model predictions are 50% off more than 30% of the time, and/or the R2 score is less than 0.8.
-The output is defined as a continuous value of sale price in dollars. Private parties/home owners/clients can access the app online and input data for their homes. The app can also be useful for real estate agents who want to give a quick estimate of saleprice to a prospective client, they can input the data on the fly while in live communication with a prospective client.
-The training data come from a public data set, which contains approx. 1500 property sales records. It contains one target features: sale price, and all other variables (23 of them) are considered features.
+An R² score of at least 0.8 on both the training and test sets.
+The model is deemed a failure if:
+After 12 months of usage, predictions are off by 50% or more, 30% of the time.
+The R² score falls below 0.8.
+Usage:
 
+The app will be accessible online, allowing users to input data for their homes to get sale price predictions.
+Real estate agents can use the app to provide quick estimates during interactions with prospective clients.
+Data Handling:
 
-#### Regression Model
-   * We want an ML model to predict sales price, in months, for a prospect expected to churn. A target variable is a discrete number. We consider a regression model, which is supervised and uni-dimensional.
-   * Our ideal outcome is to provide our sales team with reliable insight into onboarding customers with a higher sense of loyalty.
-   * The model success metrics are
-   * At least 0.8 for R2 score, on train and test set
-   * The ML model is considered a failure if:
-      * after 12 months of usage, the model's predictions are 50% off more than 30% of the time. Say, a prediction is >50% off if predicted 10 months and the actual value was 2 months.
-   * The output is defined as a continuous value for tenure in months. It is assumed that this model will predict tenure if the Predict Churn Classifier predicts 1 (yes for churn). If the prospect is online, the prospect will have already provided the input data via a form. If the prospect talks to a salesperson, the salesperson will interview to gather the input data and feed it into the App. The prediction is made on the fly (not in batches).
+The training data is sourced from a public dataset with approximately 1500 records, featuring one target variable (sale price) and 23 feature variables.
+This predictive model should achieve an R² value of 0.8 or higher to be considered successful.
 
-The predictive model should aim to acchieve an R2 value of 0.8 or higher
-
-No wireframes, no kanban board. Get data 
+No wireframes or Kanban board are included at this stage. The focus is on acquiring the necessary data to develop and train the model.
 
 ## Dashboard Design
 
@@ -160,6 +176,8 @@ No wireframes, no kanban board. Get data
    - Description of factors that may impact the sale (features and attributes).
 - Project Background
    - A short background about the motivation and request to initiate the project.
+- Project Dataset
+   - Description of the scope of the dataset.
 - Project Business Requirements
    - This section outlines the business requirements derived from the project background.
 
@@ -245,11 +263,6 @@ No wireframes, no kanban board. Get data
 * The text for the Home page was taken from Wikipedia Article A
 * Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
 * The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
-
-### Media
-
-* The photos used on the home and sign-up page are from This Open Source site
-* The images used for the gallery page were taken from this other open-source site
 
 ## Acknowledgements (optional)
 
