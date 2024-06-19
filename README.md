@@ -1,46 +1,8 @@
- # ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# HOUSE SALE PRICE PREDICTOR
 
-## Template Instructions
+This website is designed to predict house sale prices by training a machine learning model using existing data on house attributes and their corresponding sale prices.
 
-Welcome,
-
-This is the Code Institute student template for the Heritage Housing project option in Predictive Analytics. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
-
-You can safely delete the Template Instructions section of this README.md file,  and modify the remaining paragraphs for your own project. Please do read the Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use.
-
-## How to use this repo
-
-1. Use this template to create your GitHub project repo
-
-2. Log into the cloud-based IDE with your GitHub account.
-
-3. On your Dashboard, click on the Create button
-
-4. Paste in the URL you copied from GitHub earlier
-
-5. Click Create
-
-6. Wait for the workspace to open. This can take a few minutes.
-
-7. Open a new terminal and `pip3 install -r requirements.txt`
-
-11. Open the jupyter_notebooks directory and click on the notebook you want to open.
-  
-12. Click the kernel button and choose Python Environments.
-
-Note that the kernel says Python 3.8.18 as it inherits from the workspace so it will be Python-3.8.18 as installed by our template. To confirm this you can use `! python --version` in a notebook code cell.
-
-## Cloud IDE Reminders
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In your Cloud IDE, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with *Regenerate API Key*.
+![I am responsive image](docs/readme_images/page_amiresponsive.png)
 
 ## Dataset Content
 
@@ -87,6 +49,18 @@ Our client, going by the alias 'Lydia Doe', has received an inheritance from a d
 
 From searching the Internet, Lydia found a public dataset with house prices for Ames, Iowa, and will provide us with that. We will build a Data Web App to predict the sales price from the four houses based on the house attributes. 
 
+### Work methodology
+
+To achieve our goal, we will use the Cross-Industry Standard Process for Data Mining (CRISP-DM) workflow. This workflow is documented and reflected in the logical order in which the files were created, aligning with the stages of the CRISP-DM process. While the framework guides us to create files and work in a specific sequence, we also incorporate agile principles. This allows us to iterate and refine our solution, ensuring we deliver an optimal final product that meets the client's requirements.
+
+The following steps defines the CRISP-DM workflow, after each a point, a corresponding file or readme section is defined to explain the overall connection (best fit) between the stages and files and methods described in this project.
+
+Business Understanding: Readme -  Background and Problem definition chapters.
+Data Understanding:     01 - DataCollection.ipynb
+Data Preparation:       02 - DataCleaning.ipynb, 03 - CorrelationStudy.ipynb
+Modeling:               04 - FeatureEngineering.ipynb
+Evaluation:             05 - ModelEvaluteRegr_PredictPrice.ipynb
+Deployment:             Streamlit App, deployed on Heroku (locally run with app.py) 
 
 ### Problem definition
 
