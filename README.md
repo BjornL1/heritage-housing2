@@ -4,6 +4,53 @@ This website is designed to predict house sale prices by training a machine lear
 
 ![I am responsive image](docs/readme_images/page_amiresponsive.png)
 
+# Heritage Housing Issues
+
+**Data Analysis and Predictive Modelling Study**
+
+**Developed by: Ulrike Riemenschneider**
+
+![I am responsive image](media/iamresponsive.png)
+
+**Live Site:** [Live webpage](https://heritage-housing-uriem-381968c86628.herokuapp.com)
+
+**Link to Repository:** [Repository](https://github.com/URiem/heritage-housing-PP5)
+
+## Table of Content
+
+- [House Sale Price Predictor](#house-sale-price-predictor)
+  - [Table of Content](#table-of-content)
+  - [Dataset Content](#dataset-content)
+  - [Business Requirements](#business-requirements)
+  - [Background](#background)
+  - [Work methodology](#work-methodology)
+  - [Problem definition](#problem-definition)
+  - [Requirements](#requirements)
+  - [User stories](#user-stories)
+  - [Hypothesis, validation and result](#hypothesis-validation-and-result)
+  - [The rationale to map the business requirements to the Data Visualisations and ML tasks](#the-rationale-to-map-the-business-requirements-to-the-data-visualisations-and-ml-tasks)
+  - [ML Business Case](#ml-business-case)
+    - [Predict Sale Price](#predict-sale-price)
+    - [Regression Model Details](#regression-model-details)
+  - [Dashboard Design](#dashboard-design)
+    - [Page 1: Quick project summary](#page-1-quick-project-summary)
+    - [Page 2: Sale Price Correlation](#page-2-sale-price-correlation)
+    - [Page 3: Sale Price Predictor](#page-3-sale-price-predictor)
+    - [Page 4: Project Hypothesis and Validation](#page-4-project-hypothesis-and-validation)
+    - [Page 5: ML Price Predictor](#page-5-ml-price-predictor)
+  - [Unfixed Bugs](#unfixed-bugs)
+  - [PEP8 Compliance Testing](#pep8-compliance-testing)
+  - [Deployment](#deployment)
+    - [Heroku](#heroku)
+  - [Technologies](#technologies)
+    - [Development and Deployment](#development-and-deployment)
+    - [Main Data Analysis and Machine Learning](#main-data-analysis-and-machine-learning)
+  - [Credits](#credits)
+    - [Sources of code](#sources-of-code)
+  - [Acknowledgements](#acknowledgements)
+
+
+
 ## Dataset Content
 
 * The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/housing-prices-data). We then created a fictitious user story where predictive analytics can be applied in a real project in the workplace.
@@ -82,7 +129,7 @@ While the client is well-versed in the determinants of property worth in her own
 - User Story 2: As a user, I want to be able to determine the likely sale price of a home based on certain features, so that I can gain insight into the likely values of a given home in the area.
 - User Story 3: As a user, I want to be able to view the four main key features with a threshold score of 0.8, so that I can easily see the features that are most relevant from a predictive power score perspective.
 
-## Hypothesis, validation and result
+## Hypothesis validation and result
 
 1. Hypothesis: Sales price house attribute correlation:
    We assume that associoated variables for the following four features has the strongest correlation: lot area, property size, condition and age of the property:
@@ -130,7 +177,7 @@ Business Requirement 3: Predictive Modeling
 
 ## ML Business Case
 
-#### Predict Sales Price
+#### Predict Sale Price
 We aim to develop a machine learning model to predict the sale price, in dollars, for homes in Ames, Iowa. The target variable is continuous. We will initially consider a regression model, which is supervised and unidimensional.
 
 Our ideal outcome is to enable the client to reliably predict the sale price of any home in Ames, Iowa, with particular emphasis on the inherited properties the client is concerned about.
@@ -228,6 +275,11 @@ No wireframes or Kanban board are included at this stage. The focus is on acquir
 - This page displays the result connected to 
 - Introduction to hypothesis feature selection criteria.
 - Hypothesis 1,2 and 3 presented and their result.
+
+
+
+## Testing
+
 
 
 ## Unfixed Bugs
