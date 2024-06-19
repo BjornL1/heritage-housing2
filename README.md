@@ -78,44 +78,55 @@ While the client is well-versed in the determinants of property worth in her own
 
 ### User stories
 
-1. **User Story 1**: As a user, I want to view the attributes correlated to the sale price, so that I can identify the key features for upcoming sales.
-2. **User Story 2**: As a user, I want to be able to determine the likely sale price of a home based on certain features, so that I can gain insight into the likely values of a given home in the area.
-3. **User Story 3**: As a user, I want to be able to access the required information regarding price evolution easily online, so that I can identify risks and potential for future sales.
+- User Story 1: As a user, I want to view the attributes correlated to the sale price, so that I can identify the key features for upcoming sales.
+- User Story 2: As a user, I want to be able to determine the likely sale price of a home based on certain features, so that I can gain insight into the likely values of a given home in the area.
+- User Story 3: As a user, I want to be able to view the four main key features with a threshold score of 0.8, so that I can easily see the features that are most relevant from a predictive power score perspective.
 
 ## Hypothesis, validation and result
 
 1. Hypothesis: Sales price house attribute correlation:
-   We assume that the following four features has the strongest correlation: lot area, size, condition and age of the property:
-    - Validation: Evaluate the available house attributes in a correlation study.
-    - Result: From the calculations we can see that some of our assesemen of features were correct, whereas   
+   We assume that associoated variables for the following four features has the strongest correlation: lot area, property size, condition and age of the property:
+    - Validation: Evaluate the available house attributes in a correlation study, mention the the values above 0,6 for either Spearman or Pearson correlation.
+    - Result: From the calculations we can see that some of our assesement of features were correct, below is the details explained:     
+    * OverallQual - Correct, associated to condition.
+    * GrLivArea - Correct, associated to size.
+    * GarageArea - Correct, associated to size.   
+    * TotalBsmtSF - Correct, associated to size.  
+    * YearBuilt -  Correct, associated to age.
+    * 1stFlrSF - Correct, associated to size.
+
+    * Note: **lot area** is not part of property size so in this case the assumption was incorrect.  
 
 2. Hypothesis: Determine sales price:
-   We assume that the following variables will be sufficient to confidently predict the price: lot area, house size (total square feet), overall quality and the build year.
+   We assume that the following variables will be sufficient to confidently predict the price: lot area, house size (1stFlrSF ), overall quality and the build year.
    - Validation: Use a machine learning model and optimization procedures to ensure the application of appropriate methods.
-   - Result: 
-   
-3.  Hypothesis: Sales price evolution:
-   We assume that sales price is increasing with an average of two percent on average per year:
-   - Validation: Evaluate sales price development in a correlation predict power score/correlation study.
-   - Result:
+   - Result: We noticed also in this case a partial match to the assumption.
+    * OverallQual - Correct
+    * TotalBsmtSF - Incorrect, this area variable were not part of the assumption.
+    * 2ndFlrSF - Incorrect, this area variable were not part of the assumption.
+    * GarageArea - Correct
 
+3.  Hypothesis: Sales price evolution:
+   We assume that the four features found in Hypothesis 2 is sufficient to reach a 0.8 could be used as predictive power indicator:
+   - Validation: Review the result from the trained models in Hypothesis 2 and display it in the streamlit app.
+   - Result: Correct, the four features were able to use as confidently predict house sale prices, the R² score of 0.886 on the training set and 0.84 on the test set suggests that the model explains a large portion of the variance in the sale prices, which is a good sign. It means that these four features are indeed very important and provide significant predictive power.
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
-* List your business requirements and a rationale to map them to the Data Visualisations and ML tasks.
 
-  Business requirement 1: Correlation study.
-    - We will inspect the provided data received from the client.
-    - We will conduct a correlation studies to understand which variables are most relevant for house sale price impact.
-    - We will plot the significant variables against price development.
+ Business Requirement 1: Correlation Study
+- Task 1: Inspect the data provided by the client to ensure it is clean and ready for analysis.
+- Task 2: Conduct correlation studies to identify which variables have the strongest impact on house sale prices.
+- Task 3: Plot significant variables against sale prices to visualize their relationships.
 
-  Business requirement 2: Data visualisation
-   - We will apply data handling to enable visualisation of various data types. 
-   - We want to handling missing data to be able to display the non-missing values for these variables.
-   - We will identify the most suitable trendlines or plots depending onthe distribution of values.
+Business Requirement 2: Data Visualization
+- Task 1: Apply data handling techniques to prepare various data types for visualization.
+- Task 2: Identify and use the most suitable trendlines or plots based on the distribution and characteristics of the data.
+- Task 3: Create clear and informative visualizations to highlight the correlations between house attributes and sale prices.
 
-  Business requirement 3:
-  - We will use crossvalidation technique to document the most reliable trend for the sale prices.
-
+Business Requirement 3: Predictive Modeling
+- Task 1: Implement a predictive model to estimate house sale prices.
+- Task 2: Handle missing data effectively to ensure accurate predictions for all variables.
+- Task 3: Provide the client with a tool or method to predict the sale prices of her four inherited houses and any other house in Ames, Iowa.
 
 ## ML Business Case
 
