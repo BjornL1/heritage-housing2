@@ -4,17 +4,6 @@ This website is designed to predict house sale prices by training a machine lear
 
 ![I am responsive image](docs/readme_images/page_amiresponsive.png)
 
-# Heritage Housing Issues
-
-**Data Analysis and Predictive Modelling Study**
-
-**Developed by: Ulrike Riemenschneider**
-
-![I am responsive image](media/iamresponsive.png)
-
-**Live Site:** [Live webpage](https://heritage-housing-uriem-381968c86628.herokuapp.com)
-
-**Link to Repository:** [Repository](https://github.com/URiem/heritage-housing-PP5)
 
 ## Table of Content
 
@@ -49,6 +38,8 @@ This website is designed to predict house sale prices by training a machine lear
     - [Sources of code](#sources-of-code)
   - [Acknowledgements](#acknowledgements)
 
+Link to the site:
+[HOUSE SALE PRICE PREDICTOR](https://bl1-heritage-housing-d4f44a67aec9.herokuapp.com/)
 
 
 ## Dataset Content
@@ -102,12 +93,12 @@ To achieve our goal, we will use the Cross-Industry Standard Process for Data Mi
 
 The following steps defines the CRISP-DM workflow, after each a point, a corresponding file or readme section is defined to explain the overall connection (best fit) between the stages and files and methods described in this project.
 
-Business Understanding: Readme -  Background and Problem definition chapters.
-Data Understanding:     01 - DataCollection.ipynb
-Data Preparation:       02 - DataCleaning.ipynb, 03 - CorrelationStudy.ipynb
-Modeling:               04 - FeatureEngineering.ipynb
-Evaluation:             05 - ModelEvaluteRegr_PredictPrice.ipynb
-Deployment:             Streamlit App, deployed on Heroku (locally run with app.py) 
+- Business Understanding: Readme -  Background and Problem definition chapters.
+- Data Understanding:     01 - DataCollection.ipynb
+- Data Preparation:       02 - DataCleaning.ipynb, 03 - CorrelationStudy.ipynb
+- Modeling:               04 - FeatureEngineering.ipynb
+- Evaluation:             05 - ModelEvaluteRegr_PredictPrice.ipynb
+- Deployment:             Streamlit App, deployed on Heroku (locally run with app.py) 
 
 ### Problem definition
 
@@ -227,6 +218,7 @@ No wireframes or Kanban board are included at this stage. The focus is on acquir
    - Description of the scope of the dataset.
 - Project Business Requirements
    - This section outlines the business requirements derived from the project background.
+- Link to the readme file.
 
 <details>
 <summary>Project Summary Page</summary>
@@ -248,6 +240,11 @@ No wireframes or Kanban board are included at this stage. The focus is on acquir
    -  CB: "Spearman Correlation": Present Pearson heatmap and barplot.
    -  CB: "Correlation Plots of Variables vs Sale Price": Present correlation, single variable to sale price.
 
+<details>
+<summary>Sale Price Correlation Snapshot</summary>
+<img src="docs/readme_images/page_sale_price_correlation.png" width="60%">
+</details>
+
 ### Page 3: Sale Price Predictor
 - This page displays the result connected to **Business Requirement 3**
    -  Information on the business requirement criteria.
@@ -265,22 +262,41 @@ No wireframes or Kanban board are included at this stage. The focus is on acquir
    - BN: "Run Predictive Analysis": Perform calculation and present it
    - BN: "Run Prediction on Inherited Homes"
 
+<details>
+<summary>Sale Price Prediction Snapshot</summary>
+<img src="docs/readme_images/page_sale_price_predictor.png" width="60%">
+</details>
+
 ### Page 4: Project Hypothesis and Validation
 - Introduction to hypothesis feature selection criteria.
 - Hypothesis 1,2 and 3 presented and their result.
-- Link to the readme file.
 
+<details>
+<summary>Sale Price Prediction Snapshot</summary>
+<img src="docs/readme_images/page_hypothesis.png" width="60%">
+</details>
 
 ### Page 5: ML Price Predictor
-- This page displays the result connected to 
-- Introduction to hypothesis feature selection criteria.
-- Hypothesis 1,2 and 3 presented and their result.
+- Overall explanation of the ML pipeline used.
+- Visualize the most relevant features.
 
-
+<details>
+<summary>Sale Price Prediction Snapshot</summary>
+<img src="docs/readme_images/page_ML.png" width="60%">
+</details>
 
 ## Testing
 
+### CI Python Linter
+- The code has passed the test without any errors found
 
+### Manual testing
+
+- Browser Testing
+   - The Website was tested on Google Chrome, Firefox, Microsoft Edge, and Safari browsers with no issues noted.
+
+- Device Testing
+   - The website was viewed on a variety of devices such as Laptop(PC), iPhone 11, and iPad to ensure responsiveness on various screen sizes. The website performed as intended.
 
 ## Unfixed Bugs
 
@@ -290,7 +306,7 @@ No wireframes or Kanban board are included at this stage. The focus is on acquir
 
 ### Heroku
 
-* The App live link is: <https://YOUR_APP_NAME.herokuapp.com/>
+* The App live link is: <https://bl1-heritage-housing-d4f44a67aec9.herokuapp.com/>
 * Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
 * The project was deployed to Heroku using the following steps.
 
@@ -305,16 +321,32 @@ No wireframes or Kanban board are included at this stage. The focus is on acquir
 
 * Here you should list the libraries you used in the project and provide example(s) of how you used these libraries.
 
-## Credits
+- Pandas: To read data from the house records documented in CSV files and present them as tables.
 
-* In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism.
-* You can break the credits section up into Content and Media, depending on what you have included in your project.
+- Matplotlib: In the data cleaning notebook to visulize the missing values with object variables missing data, to enable plotting  create the figure and subplots with plt.subplots. To set titles for each subplot and adjust the layout with plt.tight_layout and plt.show.
+
+- Seaborn: To create the box plots that we mentioned in the previous point(Matplotlib) with sns.boxplot.
+
+- Feature-engine: To use Categorical imputation for missing values in the Data cleaning notebook.
+
+- Sklearn (linear_model): To evaluate linear regression model in the Machine learning notebook.  
+
+- Ydata-profiling: To create profiling report for the house, used in the Correlation Study notebook to view and analyze data initially before the correlation study.
+
+- Numpy: To handle mask of data in the heatmap visualisation, used in the Correlation Study notebook.
+
+- Scipy: To handle the computation of the trendlines for pearson and spearman used in the Correlation Study notebook.
+
+- PPS: To calculate the predictive power score and investigate pps score threshold value in Feature Engineering notebook. 
+
+- StreamLit: To create the web app for user interaction.
+
+## Credits
 
 ### Content
 
-* The text for the Home page was taken from Wikipedia Article A
-* Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-* The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
+* In some sections code is inspired by sections form the code institute course, in these cases a comment is added 
+  close to the code section.
 
 ## Acknowledgements (optional)
 
