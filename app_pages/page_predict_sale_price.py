@@ -26,14 +26,14 @@ def page_sale_price_predictor_body():
 
     st.write("### Sale Price Predictor Interface")
     st.success(
-        f"* The client is interested in predicting the potential sale "
+        f"* By using  "
         f" prices"
         f" for properties in Ames, Iowa, and specifically, she wants to"
         f" determine a potential value for the properties she inherited "
         f" (Business Requirement 2). \n"
     )
     st.info(
-        f"The price prediction will be based on four "
+        f" The following four "
         f" features of the property in question, which the client can input"
         f" using the selections below. These features were identified by"
         f" the machine learning model as the best features to predict Sale "
