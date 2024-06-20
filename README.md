@@ -289,7 +289,9 @@ No wireframes or Kanban board are included at this stage. The focus is on acquir
 ## Testing
 
 ### CI Python Linter
-- The code has passed the test without any errors found
+- The code has passed the test without any errors found, the test was performed on the files in the app_pages and 
+src/machine_learning.
+ 
 
 ### Manual testing
 
