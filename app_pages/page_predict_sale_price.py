@@ -25,32 +25,33 @@ def page_sale_price_predictor_body():
     )
 
     st.write("### Sale Price Predictor Interface")
-    st.success(
-        f"* By using  "
-        f" prices"
-        f" for properties in Ames, Iowa, and specifically, she wants to"
-        f" determine a potential value for the properties she inherited "
-        f" (Business Requirement 2). \n"
-    )
     st.info(
-        f" The following four "
+        f"* Using machine learning we detected that the four"
+        f" most relevant house attributes are:"
+        f"**OverallQual**, **TotalBsmtSF**\n"
+        f"**2ndFlrSF**, **GarageArea**")
+
+    st.info(
+        f"* It should be noted that, although a strong"
+        f" a strong feature correlation with sale price"
+        f" is often suitable for predicting the sale price,"
+        f" it does not necessarily guarantee good prediction results"
         f" features of the property in question, which the client can input"
-        f" using the selections below. These features were identified by"
-        f" the machine learning model as the best features to predict Sale "
-        f" Price. They are similar to, but may differ slightly from, the "
-        f" variables "
-        f" identified as most correlated in the initial data analysis. This "
-        f" is because the model will carry out more complex analysis on the "
-        f" variables behind the scenes and identify the best variables to use"
-        f" for the prediction of the Sale Price. \n\n More information on the "
-        f" machine learning model and feature importance can be found on the "
-        f" **ML: Price Prediction** page. \n\n"
-        f"**Information on categorical features used in the prediction**\n\n"
-        f"* Overall Quality: 1 - Very Poor to 10 - Very Excellent.\n\n"
-        f"All three numerical features are measured in square feet."
+        f"* A strong correlation is not necessarily a good predictor"
+        f" because it can lead to overfitting, suffer from multicollinearity,"
+        f" represent a non-causal relationship,  or fail to capture" 
     )
+
+    st.info(
+        f" Selected house attributes details\n"
+        f" OverallQual:1-10 (1 very poor, 10 very excellent)\n"
+        f" TotalBsmtSF:0-15275 (square footage)\n"
+        f" 2ndFlrSF:0-5162 (square footage)\n"
+        f" GarageArea:0-3545 (square footage)")
+    
     st.write("---")
 
+    st.write("### Sale Price Predictor Tool:")
     X_live = DrawInputsWidgets(sale_price_features)
 
     if st.button("Run Predictive Analysis"):
