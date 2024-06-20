@@ -8,11 +8,9 @@ import ppscore as pps
 sns.set_style("whitegrid")
 
 
-def trendlines_page():
+def page_sale_price_correlation():
 
-    # load data
     df = load_housing_data()
-    # The variable most strongly correlated with Sale Price/target
     vars_to_study = ['OverallQual', 'GrLivArea',
                      'GarageArea', 'TotalBsmtSF', 'YearBuilt', '1stFlrSF']
 
@@ -52,7 +50,6 @@ def trendlines_page():
     st.write("---")
 
     st.write("### Correlation Study")
-    # Correlation Study Summary
     st.write(
         f"A correlation study was conducted to better understand how "
         f"the variables are correlated to Sale Price. \n"
@@ -159,7 +156,7 @@ def correlation_to_sale_price_hist_scat(df, vars_to_study):
 
         fig, axes = plt.subplots(figsize=(8, 5))
         axes = sns.scatterplot(data=df, x=col, y=target_var, hue='OverallQual')
-        # plt.xticks(rotation=90)
+        # plt.xticks( tp rotate 90 degrees)
         plt.title(f"{col}", fontsize=20, y=1.05)
         st.pyplot(fig)
         st.write("\n\n")

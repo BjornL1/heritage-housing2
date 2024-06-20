@@ -275,21 +275,7 @@ No wireframes or Kanban board are included at this stage. The focus is on acquir
 <details>
 <summary>Sale Price Prediction Snapshot</summary>
 <img src="docs/readme_images/page_hypothesis.png" width="60%">
-</details>
-
-### Page 5: ML Price Predictor
-- Overall explanation of the ML pipeline used.
-- Visualize the most relevant features.
-
-<details>
-<summary>Sale Price Prediction Snapshot</summary>
-<img src="docs/readme_images/page_ML.png" width="60%">
-</details>
-
-## Testing
-
-### CI Python Linter
-- The code has passed the test without any errors found, the test was performed on the files in the app_pages and 
+</details> passed the test without any errors found, the test was performed on the files in the app_pages and 
 src/machine_learning.
  
 
