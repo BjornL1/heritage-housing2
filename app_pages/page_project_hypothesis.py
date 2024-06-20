@@ -1,5 +1,6 @@
 import streamlit as st
 
+
 def page_project_hypothesis_content():
 
     st.write("### Project Hypothesis and Validation Results")
@@ -10,13 +11,14 @@ def page_project_hypothesis_content():
         f" threshold at 0.6 for either Spearman or Pearson correlation\n"
         f" to check how many and which values has the strongest correlation\n"
         f" Note that high correlation between two variables indicates\n"
-        f" a strong relationship, but it doesn't guarantee that the predictive\n" 
-        f" power of a model using those variables will be equally strong.\n")
+        f" a strong relationship, but it doesn't guarantee that the\n"
+        f" predictive power of a model using those variables will be\n"
+        f" equally strong.\n")
 
     st.info(
         f"**Hypothesis 1: Sales price house attribute correlation**\n"
-        f"* We assume that the following four features have the\n" 
-        f"  strongest correlation:\n" 
+        f"* We assume that the following four features have the\n"
+        f"  strongest correlation:\n"
         f"  **lot area**, **size**, **quality** and **age**\n\n"
         f"**Result**:\n"
         f"* **Lot area** is not above the correlation threshold\n"
@@ -29,7 +31,7 @@ def page_project_hypothesis_content():
         f"* **Age** is strongly correlated with sale price\n"
         f"  through **YearBuilt**.\n\n"
         f"**Hypothesis 2: Determine sales price**\n"
-        f"* We assume that the following variables will\n" 
+        f"* We assume that the following variables will\n"
         f"  be sufficient to confidently predict the price:\n"
         f"  **lot area**, **house size** (total square feet),\n"
         f"  **overall quality**, and the **build year**.\n\n"
@@ -50,16 +52,9 @@ def page_project_hypothesis_content():
         f"**Result**:\n"
         f"The simplified method yields an average\n"
         f"annual percent increase of approximately 1.26%\n"
-        f"between 1950 and 2010. However, for the most recent\n" 
-        f"five years of this period, the variation is\n" 
+        f"between 1950 and 2010. However, for the most recent\n"
+        f"five years of this period, the variation is\n"
         f"significant, making the prediction more complex.\n"
-        f"Therefore, this average cannot be reliably used as a\n" 
+        f"Therefore, this average cannot be reliably used as a\n"
         f"variable to predict the sale price, as it does not\n"
         f"match the hypothesis assumption.")
-
-
-    # Link to README file, so the users can have access to full project documentation
-    st.write(
-        f"* For additional information, please visit and **read** the "
-        f"[Project README file](https://github.com/Code-Institute-Solutions/churnometer).")
-    

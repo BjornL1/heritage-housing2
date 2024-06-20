@@ -13,7 +13,6 @@ from src.machine_learning.predictive_analysis_ui import predict_sale_price
 
 
 def page_sale_price_predictor_body():
-    # Load predict sale price files
     vsn = 'v14_test'
     sale_price_pipe = load_pkl_file(
         f"outputs/ml_pipeline/predict_sale_price/{vsn}/regression_pipeline.pkl"
@@ -52,10 +51,8 @@ def page_sale_price_predictor_body():
     )
     st.write("---")
 
-    # Generate Live Data
     X_live = DrawInputsWidgets(sale_price_features)
 
-    # predict on live data
     if st.button("Run Predictive Analysis"):
         sale_price_prediction = predict_sale_price(
             X_live, sale_price_features, sale_price_pipe)
@@ -84,11 +81,10 @@ def page_sale_price_predictor_body():
 
 
 def DrawInputsWidgets(sale_price_features):
-    # load dataset
     df = load_housing_data()
     percentageMin, percentageMax = 0.2, 2.5
 
-    # specify the four features for user input
+    # Specify the four features for user input
     user_input_features = [
         "OverallQual", "TotalBsmtSF", "2ndFlrSF", "GarageArea"]
     X_live = pd.DataFrame([], index=[0])
@@ -132,7 +128,6 @@ def DrawInputsWidgets(sale_price_features):
                 else:
                     default_value = df[feature].mode()[0]
             else:
-                # Set a generic default value for missing features
                 default_value = 0 if feature not in df.columns or \
                     df[feature].dtype in ['int64', 'float64'] else 'None'
             X_live[feature] = default_value
