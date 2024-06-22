@@ -36,18 +36,19 @@ def page_sale_price_predictor_body():
         f" a strong feature correlation with sale price"
         f" is often suitable for predicting the sale price,"
         f" it does not necessarily guarantee good prediction results"
-        f" features of the property in question, which the client can input"
-        f"* A strong correlation is not necessarily a good predictor"
-        f" because it can lead to overfitting, suffer from multicollinearity,"
-        f" represent a non-causal relationship,  or fail to capture" 
-    )
+        f" features of the property in question, which the client can input.\n"
+        f"* If only the correlation score is used as a factor for predicting"
+        f" the sale price, it can lead to overfitting, suffer from" 
+        f" multicollinearity, represent a non-causal relationship,"
+        f" or fail to capture important nuances.")
+        
 
     st.info(
         f" Selected house attributes details\n"
-        f" OverallQual:1-10 (1 very poor, 10 very excellent)\n"
-        f" TotalBsmtSF:0-15275 (square footage)\n"
-        f" 2ndFlrSF:0-5162 (square footage)\n"
-        f" GarageArea:0-3545 (square footage)")
+        f"* OverallQual:1-10 (1 very poor, 10 very excellent)\n"
+        f"* TotalBsmtSF:0-15275 (square footage)\n"
+        f"* 2ndFlrSF:0-5162 (square footage)\n"
+        f"* GarageArea:0-3545 (square footage)")
     
     st.write("---")
 
