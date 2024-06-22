@@ -110,7 +110,7 @@ While the client is well-versed in the determinants of property worth in her own
 
 * 1. - The client is interested in identifying which house attributes have the strongest correlation with the sale price. 
 
-* 2. - The client expects data visualisations of the correlated variables against the sale price to show that.
+* 2. - The client expects data visualizations of the correlated variables against the sale price to demonstrate this.
 
 * 3. - The client is interested in predicting the house sale price from her four inherited houses and any other house in Ames, Iowa.
 

@@ -16,17 +16,17 @@ def page_sale_price_correlation():
     vars_to_study = ['OverallQual', 'GrLivArea',
                      'GarageArea', 'TotalBsmtSF', 'YearBuilt', '1stFlrSF']
 
-    st.write("### Property Sale Price Analysis")
-    st.success(
-        f"* The client is interested in understanding the correlation "
-        f" between a property's attributes/features and the sale price."
-        f" Therefore, the client expects data visualization of the correlated"
-        f" variables against the sale prices for illustration "
-        f" (Business Requirement 1), \n"
+    st.write("### House Attributes Data")
+    st.info(
+        f"* In order to get a deeper understanding"
+        f" of the different house attributes and which"
+        f" values are used for each, a table of the first ten" 
+        f" rows of data is displayed by clicking on" 
+        f" the 'View Sale Price Dataset' below."
     )
 
     # Inspect data
-    if st.checkbox("Inspect Sale Price Dataset"):
+    if st.checkbox("View Sale Price Dataset"):
         st.write(
             f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns, "
             f"find below the first 10 rows.")
@@ -51,46 +51,63 @@ def page_sale_price_correlation():
 
     st.write("---")
 
-    st.write("### Correlation Study")
+    st.write("### Correlation Study (BR1, BR2)")
     st.write(
-        f"A correlation study was conducted to better understand how "
-        f"the variables are correlated to Sale Price. \n"
-        f" Below, the results from the Pearson and Spearman correlations"
-        f" are displayed in heatmaps. The features most correlated "
-        f" with the Sale Price are then also displayed in a bar plot for"
-        f" each correlation for simplicity. These figures show that"
+        f"* In the development phase of the project, the first two business"
+        f" requirements were stated as follows:;\n"
+        f"* BR1:The client is interested in identifying which house" 
+        f" attributes have the strongest correlation with the sale price."
+        f" BR2: The client expects data visualizations of the correlated"
+        f"  variables against the sale price to demonstrate this"
         f" the most correlated variable are: **{vars_to_study}**. \n"
-        f" Therefore, we also display scatterplots illustrating  the "
-        f" correlation of each of these variables with the Sale Price."
+        f" To display the variables we will use Pearson, Spearman and"
+        f" Power Predictive score illustrations"
     )
 
     # Pearson and Spearman Correlation
     correlations = calculate_correlations(df)
 
-    st.info(
+    st.success(
         f"*** Pearson Correlation *** \n\n"
-        f"The Pearson Correlation evaluates the linear relationship between "
-        f" two continuous variables."
+        f"The Pearson correlation coefficient measures"
+        f" the strength and direction of the linear" 
+        f" relationship between two continuous" 
+        f" variables, with values" 
+        f" ranging from -1 (perfect negative correlation) to" 
+        f" +1 (perfect positive correlation)." 
+        f"A value of 0 indicates no linear relationship between the variables."
     )
 
     if st.checkbox("Pearson Correlation Ranking"):
         display_heatmap(correlations[['Variable', 'Pearson']], 'Pearson Correlation with SalePrice', 'Pearson')
 
-    st.info(
+    st.write("---")
+
+    st.success(
         f"*** Spearman Correlation *** \n\n"
-        f"The Spearman correlation evaluates monotonic relationships."
+        f"The Spearman correlation coefficient measures"
+        f" the strength and direction of the monotonic relationship"
+        f" between two ranked variables, with values"
+        f" ranging from -1 (perfect negative correlation) to"
+        f" +1 (perfect positive correlation)."
+        f" A value of 0 indicates no monotonic relationship between the variables."
     )
 
     if st.checkbox("Spearman Correlation Ranking"):
         display_heatmap(correlations[['Variable', 'Spearman']], 'Spearman Correlation with SalePrice', 'Spearman')
 
+    st.write("---")
+
     st.info(
         f"*** Combined Rank of Pearson and Spearman Correlation *** \n\n"
-        f"This combines the rankings of Pearson and Spearman correlations."
+        f"This displayes the combines the rankings of Pearson and Spearman"
+        f" correlations."
     )
 
     if st.checkbox("Combined Correlation Ranking"):
         display_heatmap(correlations[['Variable', 'Combined_Rank']], 'Combined Rank of Pearson and Spearman Correlation with SalePrice', 'Combined_Rank')
+
+    st.write("---")
 
     st.info(
         f"*** Correlation Scatterplots *** \n\n"
