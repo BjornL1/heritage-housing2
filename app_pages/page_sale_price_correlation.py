@@ -1,20 +1,51 @@
-import plotly.express as px
 import numpy as np
-import streamlit as st
-from src.data_management import load_housing_data
+import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from scipy.stats import pearsonr, spearmanr, linregress
+from statsmodels.nonparametric.smoothers_lowess import lowess
+import streamlit as st
 import ppscore as pps
-import pandas as pd
-from scipy.stats import pearsonr, spearmanr
+from src.data_management import load_housing_data
+
 
 sns.set_style("whitegrid")
 
+# Function to plot a variable against SalePrice with Pearson and Spearman trendlines
+def plot_with_custom_trendlines(df, vars, target='SalePrice'):
+    num_vars = len(vars)
+    plt.figure(figsize=(16, 6 * num_vars))
+    
+    for i, var in enumerate(vars, 1):
+        x = df[var]
+        y = df[target]
+        
+        plt.subplot(num_vars, 1, i)
+        sns.scatterplot(x=x, y=y, label='Data points')
+        
+        if var == 'TotalBsmtSF':
+            # Pearson correlation
+            pearson_coef, _ = pearsonr(x, y)
+            slope_pearson, intercept_pearson, _, _, _ = linregress(x, y)
+            line_pearson = slope_pearson * x + intercept_pearson
+            plt.plot(x, line_pearson, color='red', label=f'Pearson trendline (r={pearson_coef:.2f})')
+        else:
+            # Spearman correlation
+            spearman_coef, _ = spearmanr(x, y)
+            lowess_smoothed = lowess(y, x, frac=0.3)
+            plt.plot(lowess_smoothed[:, 0], lowess_smoothed[:, 1], color='blue', label=f'Spearman trendline (r={spearman_coef:.2f})')
+        
+        plt.xlabel(var)
+        plt.ylabel(target)
+        plt.title(f'{var} vs {target} with Trendline')
+        plt.legend()
+    
+    plt.tight_layout()
+    st.pyplot(plt)  # Use st.pyplot to display the plot in Streamlit
 
 def page_sale_price_correlation():
     df = load_housing_data()
-    vars_to_study = ['OverallQual', 'GrLivArea',
-                     'GarageArea', 'TotalBsmtSF', 'YearBuilt', '1stFlrSF']
+    vars_to_study = ['OverallQual', 'GrLivArea', 'GarageArea', 'TotalBsmtSF', 'YearBuilt', '1stFlrSF']
 
     st.write("### House Attributes Data")
     st.info(
@@ -132,7 +163,7 @@ def page_sale_price_correlation():
 
     # Correlation plots adapted from the Data Cleaning Notebook
     if st.checkbox("Correlation Plots of Variables vs Sale Price"):
-        correlation_to_sale_price_hist_scat(df, vars_to_study)
+        plot_with_custom_trendlines(df, vars_to_study)
 
     st.info(
         f"*** Predictive Power Score (PPS) ***  \n\n"
@@ -202,17 +233,6 @@ def display_heatmap(df, title, column):
     st.pyplot(fig)
 
 
-def correlation_to_sale_price_hist_scat(df, vars_to_study):
-    """ Display correlation plot between variables and sale price with integrated trendlines using plotly """
-    target_var = 'SalePrice'
-    for col in vars_to_study:
-        # Scatter plot with trendline
-        fig = px.scatter(df, x=col, y=target_var, color='OverallQual', trendline='ols', title=f"{col} vs {target_var}")
-        fig.update_layout(plot_bgcolor='white')  # Set background color to white
-        st.plotly_chart(fig)
-        st.write("\n\n")
-
-
 def calc_display_pps_matrix(df):
     """ Calculate and display Predictive Power Score """
     pps_matrix_raw = pps.matrix(df)
@@ -242,6 +262,3 @@ def heatmap_pps(df, threshold, figsize=(20, 12), font_annot=8):
                            linewidth=0.05, linecolor='grey')
         plt.ylim(len(df.columns), 0)
         st.pyplot(fig)
-
-
-
