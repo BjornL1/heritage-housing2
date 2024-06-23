@@ -18,38 +18,29 @@ def page_ML_price_predictor_content():
     if not os.path.isfile(model_performance_evaluation):
         st.write("Model Evaluation image not found at:", model_performance_evaluation)
     
-    st.write("### Quick Project Summary")
+    st.write("### Prepare Model Pipeline")
     st.info(
-        f"**Project Terminology**\n"
-        f"**Feature Engineering Process**\n\n"
-        f"Prior to creating the pipeline, we conducted a feature" 
-        f"engineering analysis."
-        f"This involved transforming raw data into meaningful" 
-        f"features that could enhance the predictive power of our models."
-        f"The feature engineering process included handling" 
-        f"missing values, encoding categorical variables, creating" 
-        f"new features, and scaling numerical features."
-        f"Once the features were engineered, we proceeded" 
-        f"to create the pipeline to streamline the data" 
-        f"preprocessing and model training processes.\n\n"
-        f"Here are the key steps that was handled in the" 
-        f"feature engineering:\n\n"
-        f"1. **Handling Missing Values**:\n"
-        f"   - We identified columns with missing values and applied" 
-        f"appropriate strategies such as mean/median imputation for numerical" 
-        f"variables and mode imputation for categorical variables.\n\n"
-        f"2. **Encoding Categorical Variables**:\n"
-        f"   - We converted categorical variables into numerical format" 
-        f"using techniques like one-hot encoding or label encoding,"
-        f"making them suitable for machine learning algorithms.\n\n"
-        f"3. **Creating New Features**:\n"
-        f"   - We generated new features based on existing data. For example," 
-        f"creating interaction terms, polynomial features, or aggregating" 
-        f"information from multiple columns to create new features.\n\n"
-        f"4. **Scaling Numerical Features**:\n"
-        f"   - We standardized or normalized numerical features to ensure" 
-        f"they have a similar scale, which can improve model performance.\n"
+         "**Feature Engineering Process**\n\n"
+    "Prior to creating the pipeline, we conducted a comprehensive feature"
+    " engineering analysis. This process involved transforming raw data into meaningful"
+    " features to enhance the predictive power of our models."
+    " During the feature engineering phase, we focused on several key steps:"
+    " checking for missing values and validating analysis types."
+    " Specifically, we applied various transformations such as logarithmic,"
+    " power, Box-Cox, Yeo-Johnson, ordinal encoding, and Winsorization."
+    " These transformations aimed to address data skewness, normalize distributions,"
+    " and ultimately improve model performance."
     )
+
+    st.write("### Create Model Pipeline")
+    st.info(
+    "**Implement Pipeline**\n\n"
+    "* Create a model base to handle missing values and encoding strategies.\n"
+    "* Identify hyperparameters and the most relevant features.\n"
+    "* Split the data into training and testing sets.\n"
+    "* Test Principal Component Analysis (PCA).\n"
+    "* Create a PKL file for the best model."
+)
 
     st.write("### Feature Importance")
     st.image(sale_price_feat_importance, use_column_width=True)
