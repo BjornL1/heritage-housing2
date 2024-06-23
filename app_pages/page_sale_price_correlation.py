@@ -141,42 +141,37 @@ def page_sale_price_correlation():
     st.write("---")
 
     st.info(
-        f"*** Correlation Scatterplots *** \n\n"
-        f"The correlation indicators above confirm that "
-        f" Sale Price correlates most strongly with "
-        f"the following variables: \n"
-        f"* Sale Price tends to increase as Overall Quality "
-        f" (OverallQual) goes up. \n"
-        f"* Sale Price tends to increase as Groundlevel Living Area "
-        f" (GrLivArea) increases. \n"
-        f"* Sale Price tends to increase with increasing Garage Area "
-        f" (GarageArea). \n"
-        f"* Sale Price tends to increase with an increase in Total "
-        f" Basement Area (TotalBsmtSF). \n"
-        f"* Sale Price tends to increase with an increase in "
-        f" Year Built (YearBuilt). \n"
-        f"* Sale Price tends to increase with an increase in "
-        f" 1st Floor Squarefootage (1stFlrSF). \n\n"
-        f"The scatterplots below illustrate the trends of the"
-        f" correlations for each variable."
+        f"*** Data Distribution and Trendline Plots *** \n\n"
+        f"To visualize the data distribution and present the trend, "
+        f"we provide plots to understand historical changes and illustrate "
+        f"the relationship between each variable and Sale Price. "
+        f"The trendlines in the plots represent these relationships. \n\n"
+        f"For all variables except TotalBsmtSF, the Spearman trendline "
+        f"best explains the correlation with Sale Price. However, for TotalBsmtSF, "
+        f"we use the Pearson trendline because the Spearman trendline "
+        f"displayed an overfitted curve and misleading correlation."
     )
 
     # Correlation plots adapted from the Data Cleaning Notebook
     if st.checkbox("Correlation Plots of Variables vs Sale Price"):
         plot_with_custom_trendlines(df, vars_to_study)
 
+    st.write("---")
+
     st.info(
-        f"*** Predictive Power Score (PPS) ***  \n\n"
-        f"Finally, the PPS detects linear or non-linear relationships "
-        f"between two variables.\n"
-        f"The score ranges from 0 (no predictive power) to 1 "
-        f"(perfect predictive power). \n"
-        f" To use the plot, find the row on the y-axis labeled 'SalePrice' "
-        f" then follow along the row and see the variables, labeled on the "
-        f" x-axis, with a pps of more"
-        f" than 0.15 expressed on the plot. Overall Quality (OverallQual)"
-        f" has the highest predictive power for the Sale Price target."
-    )
+    f"*** Predictive Power Score (PPS) ***\n\n"
+    f"* The Predictive Power Score (PPS) is a metric used to measure the "
+    f"strength of the predictive relationship between two variables. "
+    f"Unlike traditional correlation metrics like Pearson or Spearman, "
+    f"PPS can capture both linear and non-linear relationships. "
+    f"It ranges from 0 (no predictive power) to 1 (perfect predictive power).\n\n"
+    f"* PPS is particularly useful in identifying important features for "
+    f"machine learning models and understanding complex data relationships. "
+    f"In the plots below, we illustrate the PPS for various "
+    f"features in relation to the Sale Price. "
+    f"Features with a PPS higher than 0.15 are considered to have "
+    f"significant predictive power."
+)
 
     if st.checkbox("Predictive Power Score"):
         calc_display_pps_matrix(df)
