@@ -24,12 +24,18 @@ def page_sale_price_predictor_body():
         .to_list()
     )
 
-    st.write("### Sale Price Predictor Interface")
+    st.write("### Sale Price Predictor Interface (BR3)")
     st.info(
         f"* Using machine learning we detected that the four"
         f" most relevant house attributes are:"
-        f"**OverallQual**, **TotalBsmtSF**\n"
-        f"**2ndFlrSF**, **GarageArea**")
+        f"**OverallQual**, **TotalBsmtSF**,\n"
+        f"**2ndFlrSF** and **GarageArea**.\n"
+        f" By implementing the two features below to run"
+        f" predictive analysis on house sale prices, we have completed"
+        f" the third business requirement:\n"
+        f"* BR3: The client is interested in predicting the house" 
+        f" sale price from her four inherited houses and any" 
+        f" other house in Ames, Iowa.")
 
     st.info(
         f"* It should be noted that, although a strong"

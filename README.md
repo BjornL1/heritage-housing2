@@ -146,9 +146,9 @@ While the client is well-versed in the determinants of property worth in her own
     * GarageArea - Correct, aligns with the hypothesis.
 
 3.  Hypothesis: Predictive power of key housing features:
-   We assume that the four features with the best predicting power in Hypothesis 2 is sufficient to reach a 0.8 R² score could be used as predictive power indicator:
+   We assume that the four features with the highest predictive power presented in Hypothesis 2 are sufficient to achieve an R² score of 0.8 and can be used as reliable indicators of predictive power.
    - Validation: Review the result from the trained models in Hypothesis 2 and display it in the streamlit app.
-   - Result: Correct, the four features were able to use as confidently predict house sale prices, the R² score of 0.886 on the training set and 0.84 on the test set suggests that the model explains a large portion of the variance in the sale prices, which is a good sign. It means that these four features are indeed very important and provide significant predictive power.
+   - Result: Correct, the four features can be used to confidently predict house sale prices. The R² score of 0.886 on the training set and 0.84 on the test set suggests that the model explains a significant portion of the variance in sale prices, which is a positive indication. This means that these four features are indeed very important and provide substantial predictive power.
 
 ## The rationale to map the business requirements to the Data Visualisations and ML tasks
 

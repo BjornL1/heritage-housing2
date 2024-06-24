@@ -85,7 +85,7 @@ def page_sale_price_correlation():
     st.write("### Correlation Study (BR1, BR2)")
     st.write(
         f"* In the development phase of the project, the first two business"
-        f" requirements were stated as follows:;\n"
+        f" requirements were stated as follows;\n"
         f"* BR1:The client is interested in identifying which house" 
         f" attributes have the strongest correlation with the sale price."
         f" BR2: The client expects data visualizations of the correlated"
