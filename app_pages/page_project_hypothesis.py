@@ -29,7 +29,8 @@ def page_project_hypothesis_content():
         f"* **Quality** is strongly correlated with sale price\n"
         f"  through **OverallQual**.\n"
         f"* **Age** is strongly correlated with sale price\n"
-        f"  through **YearBuilt**.\n\n"
+        f"  through **YearBuilt**.\n\n")
+    st.info(
         f"**Hypothesis 2: Determine sales price**\n"
         f"* We assume that the following variables will\n"
         f"  be sufficient to confidently predict the price:\n"
@@ -44,7 +45,8 @@ def page_project_hypothesis_content():
         f"  **TotalBsmtSF, 2ndFlrSF**, and **GarageArea**.\n"
         f"* **YearBuilt** can't be used as a variable to predict\n"
         f"  the sale price and is not matching the\n"
-        f"  hypothesis assumption.\n\n"
+        f"  hypothesis assumption.\n\n")
+    st.info(
         f"**Hypothesis 3: Sale price evolution**\n"
         f"* We assume that sales price is increasing with\n"
         f"  an average of two percent per year and\n"

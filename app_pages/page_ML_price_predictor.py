@@ -42,11 +42,6 @@ def page_ML_price_predictor_content():
     "* Create a PKL file for the best model."
 )
 
-    st.write("### Feature Importance")
-    st.image(sale_price_feat_importance, use_column_width=True)
-    st.write("### Model Performance Evaluation")
-    st.image(model_performance_evaluation, use_column_width=True)
-
     # vsn = version, used to fit linter requirement of 79 characters.
     vsn = 'v14_test'
     sale_price_pipe = load_pkl_file(
@@ -63,6 +58,24 @@ def page_ML_price_predictor_content():
 
     # Display pipeline gathered below
     st.write("### Pipeline Performance")
+    st.info(
+    "**Performance Evaluation and Optimization of Regression Models**\n\n"
+    "* The initial regression model showed strong performance on"
+    " both train and test sets with an R² score"
+    " of 0.886 and 0.84 respectively.\n"
+    "* Applying PCA did not significantly improve the model's performance.\n"
+    "* Through hyperparameter optimization of the" 
+    " GradientBoostingRegressor, the best configuration achieved a" 
+    " mean score of 0.737, which is comparable to the initial" 
+    " random forest model.\n"
+    "* The variation in scores across different hyperparameters indicates" 
+    " that while some improvement was found, it was not substantial enough" 
+    " to outperform the initial model by a large margin"
+    "* The use of PCA did not contribute to improved" 
+    " model performance, suggesting that the original" 
+    " feature set was already well-suited for the" 
+    " regression task."
+)
     regression_performance(X_train=X_train, y_train=y_train,
                            X_test=X_test, y_test=y_test,
                            pipeline=sale_price_pipe)
@@ -73,6 +86,8 @@ def page_ML_price_predictor_content():
                                 pipeline=sale_price_pipe,
                                 alpha_scatter=0.5)
 
+    st.write("**Feature Importance**")
+    st.image(sale_price_feat_importance, use_column_width=True)
 
 # Run the app
 if __name__ == "__main__":

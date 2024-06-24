@@ -140,13 +140,13 @@ While the client is well-versed in the determinants of property worth in her own
    We assume that the following variables will be sufficient to confidently predict the price: lot area, house size (1stFlrSF ), overall quality and the build year.
    - Validation: Use a machine learning model and optimization procedures to ensure the application of appropriate methods.
    - Result: We noticed also in this case a partial match to the assumption.
-    * OverallQual - Correct
-    * TotalBsmtSF - Incorrect, this area variable were not part of the assumption.
-    * 2ndFlrSF - Incorrect, this area variable were not part of the assumption.
-    * GarageArea - Correct
+    * OverallQual - Correct, aligns with the hypothesis.
+    * TotalBsmtSF - Incorrect compared to the hypothesis.
+    * 2ndFlrSF - Incorrect compared to the hypothesis.
+    * GarageArea - Correct, aligns with the hypothesis.
 
-3.  Hypothesis: Sales price evolution:
-   We assume that the four features found in Hypothesis 2 is sufficient to reach a 0.8 could be used as predictive power indicator:
+3.  Hypothesis: Predictive power of key housing features:
+   We assume that the four features with the best predicting power in Hypothesis 2 is sufficient to reach a 0.8 R² score could be used as predictive power indicator:
    - Validation: Review the result from the trained models in Hypothesis 2 and display it in the streamlit app.
    - Result: Correct, the four features were able to use as confidently predict house sale prices, the R² score of 0.886 on the training set and 0.84 on the test set suggests that the model explains a large portion of the variance in the sale prices, which is a good sign. It means that these four features are indeed very important and provide significant predictive power.
 
