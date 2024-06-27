@@ -8,7 +8,7 @@ from src.machine_learning.evaluate_regression import (
 )
 
 def page_ML_price_predictor_content():
-    base_path = "outputs/ml_pipeline/predict_sale_price/v14_test/"
+    base_path = "outputs/ml_pipeline/predict_sale_price/v15_test/"
     sale_price_feat_importance = os.path.join(base_path, "feat_importance.png")
     model_performance_evaluation = os.path.join(base_path, "model_eval.png")
 
