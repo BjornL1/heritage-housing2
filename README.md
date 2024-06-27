@@ -189,24 +189,25 @@ Real estate agents who need to provide quick estimates to prospective clients du
 The training data comes from a public dataset containing approximately 1500 property sales records. It includes one target feature: sale price, and 23 other variables considered as features.
 
 #### Regression Model Details
-We want an ML model to predict the sales price for homes in Ames, Iowa. The target variable is continuous, and we will use a regression model, which is supervised and unidimensional.
-Our goal is to provide reliable predictions of home sale prices, with a focus on the inherited properties of interest to the client.
+Initially, we implemented the suggested model from feature engineering by strictly following value/threshold selection criteria. During this process, we observed that the Extra Trees Regressor initially indicated better performance. However, upon performing feature importance and regression tests, the results were significantly off compared to our initial correlation study and Predictive Power Score (PPS) analysis. While the correlation study and PPS analysis might not always perfectly reflect the final model performance, the discrepancy was substantial enough to warrant further investigation.
 
-The model success metrics are:
-An R² score of at least 0.8 on both the training and test sets.
-The model is deemed a failure if:
-After 12 months of usage, predictions are off by 50% or more, 30% of the time.
-The R² score falls below 0.8.
-Usage:
+To address this, we reduced the number of transformations (log transformer in particular) by examining the distribution and skewness of the variables, specifically looking for right-skewness and similar patterns. After reducing the transformations, the grid search results indicated that the Gradient Boosting Regressor was more appropriate. This model provided feature importance results that were more consistent with our expectations and aligned rationally with the correlation study and PPS scores.
 
-The app will be accessible online, allowing users to input data for their homes to get sale price predictions.
-Real estate agents can use the app to provide quick estimates during interactions with prospective clients.
-Data Handling:
+To ensure the reliability of the Gradient Boosting Regressor, which showed an R² score above the acceptable business requirement limit for both the training and test sets, we performed additional analysis. Despite the Extra Trees Regressor showing slightly higher scores in the initial test, the selected dominant features from the Gradient Boosting Regressor made more sense. This step was crucial to prevent issues such as overfitting and to confirm the robustness of our model.
 
-The training data is sourced from a public dataset with approximately 1500 records, featuring one target variable (sale price) and 23 feature variables.
-This predictive model should achieve an R² value of 0.8 or higher to be considered successful.
+In the images below you will find images from ExtraTreeRegression.
 
-No wireframes or Kanban board are included at this stage. The focus is on acquiring the necessary data to develop and train the model.
+<details>
+<summary>Regression Score (ExtraTreeRegression)</summary>
+<img src="docs/readme_images/extra_tree_regr2score.png" width="60%">
+</details>
+
+
+
+<details>
+<summary>Feature Importance (ExtraTreeRegression)</summary>
+<img src="docs/readme_images/extra_tree_regr_feat_imp.png" width="60%">
+</details>
 
 ## Dashboard Design
 
