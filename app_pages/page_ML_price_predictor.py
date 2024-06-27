@@ -58,7 +58,6 @@ def page_ML_price_predictor_content():
         f"outputs/ml_pipeline/predict_sale_price/{vsn}/y_train.csv").squeeze()
     y_test = pd.read_csv(
         f"outputs/ml_pipeline/predict_sale_price/{vsn}/y_test.csv").squeeze()
-
     # Display pipeline gathered below
     st.write("### Pipeline Performance")
     st.info(
@@ -81,15 +80,18 @@ def page_ML_price_predictor_content():
     " that while some improvement was found, it was not substantial enough" 
     " to outperform the initial model by a large margin.\n"
 )
-    regression_performance(X_train=X_train, y_train=y_train,
-                           X_test=X_test, y_test=y_test,
-                           pipeline=sale_price_pipe)
-
+   
     st.write("**Performance Plot**")
-    regression_evaluation_plots(X_train=X_train, y_train=y_train,
-                                X_test=X_test, y_test=y_test,
-                                pipeline=sale_price_pipe,
-                                alpha_scatter=0.5)
+    st.write("**Train Set**\n"
+            "* R2 Score: 0.901\n"
+            "* Mean Absolute Error: 18036.814\n"
+            "* Mean Squared Error: 608487525.518\n"
+            "* Root Mean Squared Error: 24667.54\n")
+    st.write("**Test Set**\n"
+            "* R2 Score: 0.841\n"
+            "* Mean Absolute Error: 22126.012\n"
+            "* Mean Squared Error: 1098321674.306\n"
+            "* Root Mean Squared Error: 33140.937\n")
 
     st.write("**Feature Importance**")
     st.image(sale_price_feat_importance, use_column_width=True)
