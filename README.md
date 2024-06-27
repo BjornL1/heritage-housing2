@@ -336,6 +336,8 @@ src/machine_learning.
 * In some sections code is inspired by sections form the code institute course, in these cases a comment is added 
   close to the code section.
 
+* In the Feature Engineering notebook, the Shapiro-Wilk normality test was performed, providing insight on how to apply the correct syntax, e.g., `stats.shapiro`, for a variable by using the [SciPy manual](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.shapiro.html) v.14.0 in the section for 'scipy.stats'.
+
 ## Acknowledgements (optional)
 
 * Thanks to my mentor Mo Shami for his support and advice.
