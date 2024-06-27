@@ -33,14 +33,14 @@ def page_summary_content():
         f"* The datasets are defined as\n"
         f" dataset 1 (DS1) which is the main set and\n"
         f" dataset 2 (DS2) for the inherited houses\n"
-        f"*DS1: This dataset contains nearly 1500 rows and 24 columns.\n"
+        f"* DS1: This dataset contains nearly 1500 rows and 24 columns.\n"
         f" Among these, 23 columns\n"
         f" represent various house attributes\n"
         f" (such as quality or square footage)\n"
         f" that will be analyzed.\n"
-        f" *The target variable in this dataset is the sale price.\n"
+        f" The target variable in this dataset is the sale price.\n"
         f"* DS2: There are four rows of data in this data which will\n"
-        f" be calculated by using the input in dataset 1\n")
+        f" be calculated by using the model output from dataset 1.\n")
 
     st.info(
         f"**Project Business Requirements**\n"

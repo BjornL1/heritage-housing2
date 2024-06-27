@@ -27,7 +27,7 @@ def page_sale_price_predictor_body():
     st.write("### Sale Price Predictor Interface (BR3)")
     st.info(
         f"* Using machine learning we detected that the four"
-        f" most relevant house attributes are:"
+        f" most relevant house attributes are:\n"
         f"**OverallQual**, **TotalBsmtSF**,\n"
         f"**2ndFlrSF** and **GarageArea**.\n"
         f" By implementing the two features below to run"

@@ -87,8 +87,8 @@ def page_sale_price_correlation():
         f"* In the development phase of the project, the first two business"
         f" requirements were stated as follows;\n"
         f"* BR1:The client is interested in identifying which house" 
-        f" attributes have the strongest correlation with the sale price."
-        f" BR2: The client expects data visualizations of the correlated"
+        f" attributes have the strongest correlation with the sale price.\n"
+        f"* BR2: The client expects data visualizations of the correlated"
         f"  variables against the sale price to demonstrate this"
         f" the most correlated variable are: **{vars_to_study}**. \n"
         f" To display the variables we will use Pearson, Spearman and"
@@ -98,7 +98,7 @@ def page_sale_price_correlation():
     # Pearson and Spearman Correlation
     correlations = calculate_correlations(df)
 
-    st.success(
+    st.info(
         f"*** Pearson Correlation *** \n\n"
         f"The Pearson correlation coefficient measures"
         f" the strength and direction of the linear" 
@@ -106,7 +106,7 @@ def page_sale_price_correlation():
         f" variables, with values" 
         f" ranging from -1 (perfect negative correlation) to" 
         f" +1 (perfect positive correlation)." 
-        f"A value of 0 indicates no linear relationship between the variables."
+        f" A value of 0 indicates no linear relationship between the variables."
     )
 
     if st.checkbox("Pearson Correlation Ranking"):
@@ -114,7 +114,7 @@ def page_sale_price_correlation():
 
     st.write("---")
 
-    st.success(
+    st.info(
         f"*** Spearman Correlation *** \n\n"
         f"The Spearman correlation coefficient measures"
         f" the strength and direction of the monotonic relationship"
