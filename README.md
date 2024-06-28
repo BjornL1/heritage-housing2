@@ -176,7 +176,7 @@ Our ideal outcome is to enable the client to reliably predict the sale price of 
 
 **Success Metrics**:
 An R² score of at least 0.8 on both the training and test sets.
-The model will be considered a failure if, after 12 months of usage, the model's predictions are off by 50% or more, 30% of the time, and/or if the R² score is less than 0.8.
+The model will be considered a failure if, after 12 months of usage, its predictions are off by 30% or more, 20% of the time, and/or if the R² score drops below 0.8.
 
 **Output**:
 A continuous value representing the sale price in dollars.
@@ -259,8 +259,19 @@ After conducting the tests, we can conclude that:
 
 <details>
 <summary>Sale Price Correlation Snapshot</summary>
-<img src="docs/readme_images/page_sale_price_correlation.png" width="60%">
+<img src="docs/readme_images/page_sale_price_corr.png" width="60%">
 </details>
+
+
+<details>
+<summary>Sale Price Varibles vs Sale Price </summary>
+<img src="docs/readme_images/page_sale_sale_price_varplots.png" width="60%">
+</details>
+
+
+
+
+
 
 ### Page 3: Sale Price Predictor
 - This page displays the result connected to **Business Requirement 3**
@@ -289,7 +300,7 @@ After conducting the tests, we can conclude that:
 - Hypothesis 1,2 and 3 presented and their result.
 
 <details>
-<summary>Sale Price Prediction Snapshot</summary>
+<summary>Project Hypothesis Snapshot</summary>
 <img src="docs/readme_images/page_hypothesis.png" width="60%">
 </details> passed the test without any errors found, the test was performed on the files in the app_pages and 
 src/machine_learning.
