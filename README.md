@@ -4,6 +4,7 @@ This website is designed to predict house sale prices by training a machine lear
 
 ![I am responsive image](docs/readme_images/page_amiresponsive.png)
 
+Link to site: [House Sale Price Predictor](https://bl1-heritage-housing-d4f44a67aec9.herokuapp.com/)
 
 ## Table of Content
 
