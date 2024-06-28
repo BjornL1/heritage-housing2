@@ -188,7 +188,7 @@ Real estate agents who need to provide quick estimates to prospective clients du
 **Data Source**:
 The training data comes from a public dataset containing approximately 1500 property sales records. It includes one target feature: sale price, and 23 other variables considered as features.
 
-#### Regression Model Details
+### Regression Model Details
 Initially, we implemented the suggested model from feature engineering by strictly following value/threshold selection criteria. During this process, we observed that the Extra Trees Regressor initially indicated better performance. However, upon performing feature importance and regression tests, the results were significantly off compared to our initial correlation study and Predictive Power Score (PPS) analysis. While the correlation study and PPS analysis might not always perfectly reflect the final model performance, the discrepancy was substantial enough to warrant further investigation.
 
 To address this, we reduced the number of transformations (log transformer in particular) by examining the distribution and skewness of the variables, specifically looking for right-skewness and similar patterns. After reducing the transformations, the grid search results indicated that the Gradient Boosting Regressor was more appropriate. This model provided feature importance results that were more consistent with our expectations and aligned rationally with the correlation study and PPS scores.
@@ -208,6 +208,19 @@ In the images below you will find images from ExtraTreeRegression.
 <summary>Feature Importance (ExtraTreeRegression)</summary>
 <img src="docs/readme_images/extra_tree_regr_feat_imp.png" width="60%">
 </details>
+
+**Gradient Boosting Regressor - further testing**
+We noticed that the feature importance for OverallQual was significantly higher than any other feature in the dataset. While our model evaluation scores for both the training and test sets were high, we wanted to ensure the model's stability and robustness. To investigate this, we employed three methods: Partial Dependence Plot (PDP), checking model performance without OverallQual, and Permutation Importance. These methods can provide a comprehensive understanding of the feature's impact and help verify the model's reliability.
+
+After conducting the tests, we can conclude that:
+
+* OverallQual is consistently identified as the most important feature across all methods, with substantial influence on the model's predictions.
+* GrLivArea, TotalBsmtSF, and 2ndFlrSF are also important, though less influential than OverallQual.
+* The PDP and feature importance plots provide consistent insights, showing a clear, positive relationship between OverallQual and SalePrice.
+* The permutation importance method further validates the model's balanced reliance on multiple features, ensuring robustness and interpretability.
+* These findings suggest that OverallQual is a crucial predictor of house prices in your dataset, but the model also benefits from incorporating other significant features. This balanced importance distribution helps in building a robust and generalizable model.
+
+
 
 ## Dashboard Design
 
@@ -237,10 +250,12 @@ In the images below you will find images from ExtraTreeRegression.
    - Information and threshold values selected for power predictive score heatmap and bar plot visualization.
 
 - Checkboxes:
-   -  CB: "Inspect Sale Price Dataset": Present 10 rows of the dataset.
-   -  CB: "Pearson Correlation": Present Pearson heatmap and barplot.
-   -  CB: "Spearman Correlation": Present Pearson heatmap and barplot.
+   -  CB: "View Sale Price Dataset": Present 10 rows of the dataset.
+   -  CB: "Pearson Correlation Ranking": Present Pearson heatmap and barplot.
+   -  CB: "Spearman Correlation Ranking": Present Spearman heatmap and barplot.
+   -  CB: "Combined Correlation Ranking": The combined Spearman and Pearson heatmap and barplot.
    -  CB: "Correlation Plots of Variables vs Sale Price": Present correlation, single variable to sale price.
+   -  CB: "Predictive Power Score: Plot predictive power score.
 
 <details>
 <summary>Sale Price Correlation Snapshot</summary>
@@ -279,6 +294,19 @@ In the images below you will find images from ExtraTreeRegression.
 </details> passed the test without any errors found, the test was performed on the files in the app_pages and 
 src/machine_learning.
  
+
+### Page 5: ML Price Predictor
+- Discuss the steps taken during feature engineering, including checking for missing values, validating analysis types, and applying transformations to address data skewness and normalize distributions.
+- Describe how the machine learning pipeline was constructed, detailing the integration of data preprocessing, feature selection, and model training stages.
+- Provide metrics and results that demonstrate the effectiveness of the pipeline. 
+- Feature importance result.
+
+<details>
+<summary>Feature importance</summary>
+<img src="docs/readme_images/feature_importance_plot.png" width="60%">
+</details> 
+
+
 
 ### Manual testing
 
