@@ -219,7 +219,7 @@ After conducting the tests, we can conclude that:
 * GrLivArea, TotalBsmtSF, and 2ndFlrSF are also important, though less influential than OverallQual.
 * The PDP and feature importance plots provide consistent insights, showing a clear, positive relationship between OverallQual and SalePrice.
 * The permutation importance method further validates the model's balanced reliance on multiple features, ensuring robustness and interpretability.
-* These findings suggest that OverallQual is a crucial predictor of house prices in your dataset, but the model also benefits from incorporating other significant features. This balanced importance distribution helps in building a robust and generalizable model.
+* These findings suggest that OverallQual is a crucial predictor of house prices in the dataset, but the model also benefits from incorporating other significant features. This balanced importance distribution helps in building a robust and generalizable model.
 
 
 
@@ -348,8 +348,6 @@ src/machine_learning.
 6. If the slug size is too large then add large files not required for the app to the .slugignore file.
 
 ## Main Data Analysis and Machine Learning Libraries
-
-* Here you should list the libraries you used in the project and provide example(s) of how you used these libraries.
 
 - Pandas: To read data from the house records documented in CSV files and present them as tables.
 
