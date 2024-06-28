@@ -11,18 +11,20 @@ from src.data_management import load_housing_data
 
 sns.set_style("whitegrid")
 
-# Function to plot a variable against SalePrice with Pearson and Spearman trendlines
+# Function to plot a variable - SalePrice with Pearson and Spearman trendlines
+
+
 def plot_with_custom_trendlines(df, vars, target='SalePrice'):
     num_vars = len(vars)
     plt.figure(figsize=(16, 6 * num_vars))
-    
+
     for i, var in enumerate(vars, 1):
         x = df[var]
         y = df[target]
-        
+
         plt.subplot(num_vars, 1, i)
         sns.scatterplot(x=x, y=y, label='Data points')
-        
+
         if var == 'TotalBsmtSF':
             # Pearson correlation
             pearson_coef, _ = pearsonr(x, y)
@@ -33,7 +35,9 @@ def plot_with_custom_trendlines(df, vars, target='SalePrice'):
             # Spearman correlation
             spearman_coef, _ = spearmanr(x, y)
             lowess_smoothed = lowess(y, x, frac=0.3)
-            plt.plot(lowess_smoothed[:, 0], lowess_smoothed[:, 1], color='blue', label=f'Spearman trendline (r={spearman_coef:.2f})')
+            plt.plot(lowess_smoothed[:, 0], lowess_smoothed[:, 1], 
+                     color='blue', 
+                     label=f'Spearman trendline (r={spearman_coef:.2f})')
         
         plt.xlabel(var)
         plt.ylabel(target)
