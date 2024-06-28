@@ -54,6 +54,6 @@ def page_summary_content():
         f"and any other house in Ames, Iowa.\n")
 
     st.write(
-        f"* For additional information, please visit and **read** the\n"
+        f"* For additional information, please visit and read the\n"
         f"[Project README file]\n"
-        f"(https://github.com/Code-Institute-Solutions/churnometer).")
+        f"(https://github.com/BjornL1/heritage-housing2/tree/main).")
