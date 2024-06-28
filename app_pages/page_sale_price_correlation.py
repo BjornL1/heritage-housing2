@@ -30,33 +30,38 @@ def plot_with_custom_trendlines(df, vars, target='SalePrice'):
             pearson_coef, _ = pearsonr(x, y)
             slope_pearson, intercept_pearson, _, _, _ = linregress(x, y)
             line_pearson = slope_pearson * x + intercept_pearson
-            plt.plot(x, line_pearson, color='red', label=f'Pearson trendline (r={pearson_coef:.2f})')
+            plt.plot(x, line_pearson, color='red',
+                     label=f'Pearson trendline (r={pearson_coef:.2f})')
         else:
             # Spearman correlation
             spearman_coef, _ = spearmanr(x, y)
             lowess_smoothed = lowess(y, x, frac=0.3)
-            plt.plot(lowess_smoothed[:, 0], lowess_smoothed[:, 1], 
-                     color='blue', 
+            spearman_coef, _ = spearmanr(x, y)
+            lowess_smoothed = lowess(y, x, frac=0.3)
+            plt.plot(lowess_smoothed[:, 0], lowess_smoothed[:, 1],
+                     color='blue',
                      label=f'Spearman trendline (r={spearman_coef:.2f})')
-        
+
         plt.xlabel(var)
         plt.ylabel(target)
         plt.title(f'{var} vs {target} with Trendline')
         plt.legend()
-    
+
     plt.tight_layout()
     st.pyplot(plt)  # Use st.pyplot to display the plot in Streamlit
 
+
 def page_sale_price_correlation():
     df = load_housing_data()
-    vars_to_study = ['OverallQual', 'GrLivArea', 'GarageArea', 'TotalBsmtSF', 'YearBuilt', '1stFlrSF']
+    vars_to_study = ['OverallQual', 'GrLivArea', 'GarageArea',
+                     'TotalBsmtSF', 'YearBuilt', '1stFlrSF']
 
     st.write("### House Attributes Data")
     st.info(
         f"* In order to get a deeper understanding"
         f" of the different house attributes and which"
-        f" values are used for each, a table of the first ten" 
-        f" rows of data is displayed by clicking on" 
+        f" values are used for each, a table of the first ten"
+        f" rows of data is displayed by clicking on"
         f" the 'View Sale Price Dataset' below."
     )
 
@@ -90,7 +95,7 @@ def page_sale_price_correlation():
     st.write(
         f"* In the development phase of the project, the first two business"
         f" requirements were stated as follows;\n"
-        f"* BR1:The client is interested in identifying which house" 
+        f"* BR1:The client is interested in identifying which house"
         f" attributes have the strongest correlation with the sale price.\n"
         f"* BR2: The client expects data visualizations of the correlated"
         f"  variables against the sale price to demonstrate this"
@@ -105,16 +110,19 @@ def page_sale_price_correlation():
     st.info(
         f"*** Pearson Correlation *** \n\n"
         f"The Pearson correlation coefficient measures"
-        f" the strength and direction of the linear" 
-        f" relationship between two continuous" 
-        f" variables, with values" 
-        f" ranging from -1 (perfect negative correlation) to" 
-        f" +1 (perfect positive correlation)." 
-        f" A value of 0 indicates no linear relationship between the variables."
+        f" the strength and direction of the linear"
+        f" relationship between two continuous"
+        f" variables, with values"
+        f" ranging from -1 (perfect negative correlation) to"
+        f" +1 (perfect positive correlation)."
+        f" A value of 0 indicates no linear relationship between the"
+        f" variables."
     )
 
     if st.checkbox("Pearson Correlation Ranking"):
-        display_heatmap(correlations[['Variable', 'Pearson']], 'Pearson Correlation with SalePrice', 'Pearson')
+        display_heatmap(correlations[['Variable', 'Pearson']],
+                        'Pearson Correlation with SalePrice',
+                        'Pearson')
 
     st.write("---")
 
@@ -125,11 +133,14 @@ def page_sale_price_correlation():
         f" between two ranked variables, with values"
         f" ranging from -1 (perfect negative correlation) to"
         f" +1 (perfect positive correlation)."
-        f" A value of 0 indicates no monotonic relationship between the variables."
+        f" A value of 0 indicates no monotonic relationship between the"
+        f" variables."
     )
 
     if st.checkbox("Spearman Correlation Ranking"):
-        display_heatmap(correlations[['Variable', 'Spearman']], 'Spearman Correlation with SalePrice', 'Spearman')
+        display_heatmap(correlations[['Variable', 'Spearman']],
+                        'Spearman Correlation with SalePrice',
+                        'Spearman')
 
     st.write("---")
 
@@ -140,7 +151,10 @@ def page_sale_price_correlation():
     )
 
     if st.checkbox("Combined Correlation Ranking"):
-        display_heatmap(correlations[['Variable', 'Combined_Rank']], 'Combined Rank of Pearson and Spearman Correlation with SalePrice', 'Combined_Rank')
+        display_heatmap(correlations[['Variable', 'Combined_Rank']],
+                        'Combined Rank of Pearson and Spearman Correlation '
+                        'with SalePrice',
+                        'Combined_Rank')
 
     st.write("---")
 
@@ -151,7 +165,8 @@ def page_sale_price_correlation():
         f"the relationship between each variable and Sale Price. "
         f"The trendlines in the plots represent these relationships. \n\n"
         f"For all variables except TotalBsmtSF, the Spearman trendline "
-        f"best explains the correlation with Sale Price. However, for TotalBsmtSF, "
+        f"best explains the correlation with Sale Price. However, for"
+        f" TotalBsmtSF, "
         f"we use the Pearson trendline because the Spearman trendline "
         f"displayed an overfitted curve and misleading correlation."
     )
@@ -163,19 +178,20 @@ def page_sale_price_correlation():
     st.write("---")
 
     st.info(
-    f"*** Predictive Power Score (PPS) ***\n\n"
-    f"* The Predictive Power Score (PPS) is a metric used to measure the "
-    f"strength of the predictive relationship between two variables. "
-    f"Unlike traditional correlation metrics like Pearson or Spearman, "
-    f"PPS can capture both linear and non-linear relationships. "
-    f"It ranges from 0 (no predictive power) to 1 (perfect predictive power).\n\n"
-    f"* PPS is particularly useful in identifying important features for "
-    f"machine learning models and understanding complex data relationships. "
-    f"In the plots below, we illustrate the PPS for various "
-    f"features in relation to the Sale Price. "
-    f"Features with a PPS higher than 0.15 are considered to have "
-    f"significant predictive power."
-)
+        f"*** Predictive Power Score (PPS) ***\n\n"
+        f"* The Predictive Power Score (PPS) is a metric used to measure the "
+        f"strength of the predictive relationship between two variables. "
+        f"Unlike traditional correlation metrics like Pearson or Spearman, "
+        f"PPS can capture both linear and non-linear relationships. "
+        f"It ranges from 0 (no predictive power) to 1"
+        f" (perfect predictive power).\n\n"
+        f"* PPS is particularly useful in identifying important features for "
+        f"machine learning models and understanding complex "
+        f"data relationships. "
+        f"In the plots below, we illustrate the PPS for various "
+        f"features in relation to the Sale Price. "
+        f"Features with a PPS higher than 0.15 are considered to have "
+        f"significant predictive power.")
 
     if st.checkbox("Predictive Power Score"):
         calc_display_pps_matrix(df)
@@ -187,15 +203,15 @@ def calculate_correlations(df):
 
     df_encoded = pd.get_dummies(df, columns=categorical_vars, drop_first=True)
 
-    # Ensure 'SalePrice' is included in the numeric variables
-    numeric_vars = df_encoded.select_dtypes(include=[np.number]).columns.tolist()
+    numeric_vars = df_encoded.select_dtypes(include=[np.number])\
+                             .columns.tolist()
     if 'SalePrice' not in numeric_vars:
         numeric_vars.append('SalePrice')
 
     correlations = {'Variable': [], 'Pearson': [], 'Spearman': []}
 
     for var in numeric_vars:
-        if var != 'SalePrice':  # Exclude the target variable itself
+        if var != 'SalePrice':
             x = df_encoded[var]
             y = df_encoded['SalePrice']
 
@@ -206,17 +222,17 @@ def calculate_correlations(df):
             correlations['Pearson'].append(pearson_coef)
             correlations['Spearman'].append(spearman_coef)
 
-    # Create a DataFrame with the correlation results
     correlation_df = pd.DataFrame(correlations)
     correlation_df['Abs_Pearson'] = correlation_df['Pearson'].abs()
     correlation_df['Abs_Spearman'] = correlation_df['Spearman'].abs()
 
-    # Rank the variables based on absolute correlations
-    correlation_df['Pearson_Rank'] = correlation_df['Abs_Pearson'].rank(ascending=False)
-    correlation_df['Spearman_Rank'] = correlation_df['Abs_Spearman'].rank(ascending=False)
-    correlation_df['Combined_Rank'] = (correlation_df['Pearson_Rank'] + correlation_df['Spearman_Rank']) / 2
+    correlation_df['Pearson_Rank'] = correlation_df['Abs_Pearson']\
+        .rank(ascending=False)
+    correlation_df['Spearman_Rank'] = correlation_df['Abs_Spearman']\
+        .rank(ascending=False)
+    correlation_df['Combined_Rank'] = (correlation_df['Pearson_Rank'] +
+                                       correlation_df['Spearman_Rank']) / 2
 
-    # Sort the DataFrame based on the combined rank
     correlation_df.sort_values(by='Combined_Rank', inplace=True)
 
     return correlation_df
@@ -227,7 +243,8 @@ def display_heatmap(df, title, column):
     mask = np.zeros_like(df, dtype=bool)
     mask[abs(df) < 0.2] = True
     fig, ax = plt.subplots(figsize=(12, 10))
-    sns.heatmap(df, annot=True, mask=mask, cmap='viridis', annot_kws={"size": 10}, ax=ax)
+    sns.heatmap(df, annot=True, mask=mask, cmap='viridis',
+                annot_kws={"size": 10}, ax=ax)
     plt.title(title)
     st.pyplot(fig)
 
